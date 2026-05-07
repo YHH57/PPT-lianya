@@ -1,0 +1,1556 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" data-theme="tokyo-night" data-themes="tokyo-night,blueprint,cyberpunk-neon,corporate-clean,aurora">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI工作流成果展示｜内容生产年度成果</title>
+<link rel="stylesheet" href="../../.codex/skills/html-ppt/assets/fonts.css">
+<link rel="stylesheet" href="../../.codex/skills/html-ppt/assets/base.css">
+<link rel="stylesheet" id="theme-link" href="../../.codex/skills/html-ppt/assets/themes/tokyo-night.css">
+<link rel="stylesheet" href="../../.codex/skills/html-ppt/assets/animations/animations.css">
+<style>
+  :root {
+    --deck-green: #2ee59d;
+    --deck-blue: #6aa7ff;
+    --deck-pink: #ff4fd8;
+    --deck-yellow: #ffd166;
+  }
+  body {
+    background:
+      radial-gradient(circle at 18% 12%, rgba(106, 167, 255, .18), transparent 32%),
+      radial-gradient(circle at 78% 18%, rgba(255, 79, 216, .13), transparent 30%),
+      radial-gradient(circle at 58% 86%, rgba(46, 229, 157, .12), transparent 36%),
+      var(--bg);
+  }
+  .slide {
+    padding: 62px 86px;
+  }
+  .deck::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(circle at center, black, transparent 78%);
+  }
+  .slide > :not(.deck-footer) {
+    position: relative;
+    z-index: 1;
+  }
+  .slide > .deck-footer {
+    position: absolute;
+    z-index: 3;
+  }
+  .deck-mark {
+    position: absolute;
+    top: 26px;
+    right: 42px;
+    z-index: 4;
+    color: var(--text-3);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 34px;
+    align-items: center;
+  }
+  .signal-panel {
+    border: 1px solid color-mix(in srgb, var(--accent) 42%, transparent);
+    border-radius: 28px;
+    padding: 28px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.025)),
+      radial-gradient(circle at 30% 0%, rgba(106,167,255,.22), transparent 52%);
+    box-shadow: 0 28px 90px rgba(0,0,0,.35);
+  }
+  .metric-hero {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 18px;
+    align-items: center;
+    margin-top: 26px;
+  }
+  .metric-box {
+    min-height: 158px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 20px;
+    background: color-mix(in srgb, var(--surface) 84%, transparent);
+  }
+  .metric-num {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 58px;
+    line-height: 1;
+    font-weight: 900;
+    color: var(--deck-green);
+  }
+  .metric-label {
+    margin-top: 10px;
+    color: var(--text-2);
+    font-size: 16px;
+  }
+  .arrow-burst {
+    width: 68px;
+    height: 68px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-size: 34px;
+    color: #06151e;
+    background: linear-gradient(135deg, var(--deck-green), var(--deck-blue));
+    box-shadow: 0 0 34px rgba(46, 229, 157, .45);
+  }
+  .phase-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-top: 30px;
+  }
+  .phase-card {
+    min-height: 238px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px;
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+  }
+  .phase-card .tag {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .phase-card h4 {
+    margin-top: 12px;
+    font-size: 20px;
+  }
+  .phase-card p {
+    margin: 10px 0 0;
+    color: var(--text-2);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .logic-map {
+    display: grid;
+    grid-template-columns: 1fr 78px 1fr 78px 1fr;
+    gap: 18px;
+    align-items: center;
+    margin-top: 28px;
+  }
+  .logic-node {
+    min-height: 220px;
+    border: 1px solid color-mix(in srgb, var(--accent) 36%, transparent);
+    border-radius: 24px;
+    padding: 24px;
+    background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+  }
+  .logic-arrow {
+    font-size: 42px;
+    color: var(--deck-green);
+    text-align: center;
+  }
+  .workflow {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr 1fr;
+    gap: 22px;
+    margin-top: 26px;
+  }
+  .flow-stack {
+    display: grid;
+    gap: 12px;
+  }
+  .flow-item {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 15px 17px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .flow-item b {
+    display: block;
+    font-size: 17px;
+  }
+  .flow-item span {
+    color: var(--text-2);
+    font-size: 13px;
+  }
+  .center-engine {
+    min-height: 370px;
+    border-radius: 28px;
+    padding: 28px;
+    border: 1px solid color-mix(in srgb, var(--deck-green) 42%, transparent);
+    background:
+      radial-gradient(circle at center, rgba(46,229,157,.22), transparent 48%),
+      linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.025));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .center-engine .engine-word {
+    font-size: 74px;
+    line-height: 1;
+    font-weight: 900;
+  }
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 22px;
+    margin-top: 32px;
+  }
+  .kpi {
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 26px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .kpi .big {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 72px;
+    line-height: 1;
+    color: var(--deck-green);
+    font-weight: 900;
+  }
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 34px;
+    position: relative;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 7%;
+    right: 7%;
+    top: 37px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--deck-green), var(--deck-pink));
+    opacity: .72;
+  }
+  .time-card {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 68px 20px 22px;
+    min-height: 250px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .dot {
+    position: absolute;
+    top: 24px;
+    left: 22px;
+    width: 28px;
+    height: 28px;
+    border-radius: 99px;
+    background: var(--deck-green);
+    box-shadow: 0 0 22px rgba(46, 229, 157, .5);
+  }
+  .source-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 28px;
+  }
+  .source-card {
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 22px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+    min-height: 190px;
+  }
+  .source-card a {
+    display: inline-block;
+    margin-top: 14px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  .problem-layout {
+    display: grid;
+    grid-template-columns: .92fr 1.08fr;
+    gap: 28px;
+    align-items: stretch;
+    margin-top: 26px;
+  }
+  .problem-statement {
+    border: 1px solid color-mix(in srgb, var(--deck-pink) 38%, transparent);
+    border-radius: 26px;
+    padding: 30px;
+    background:
+      radial-gradient(circle at 18% 8%, rgba(255,79,216,.18), transparent 48%),
+      color-mix(in srgb, var(--surface) 86%, transparent);
+    min-height: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .problem-statement .large-word {
+    font-size: 76px;
+    line-height: .95;
+    font-weight: 900;
+  }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .pain-card {
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px;
+    min-height: 188px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .pain-card b {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .quality-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 26px;
+  }
+  .quality-card {
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+    min-height: 200px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .quality-card .index {
+    display: inline-flex;
+    width: 34px;
+    height: 34px;
+    border-radius: 99px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    font-family: var(--font-mono);
+    color: #06151e;
+    background: var(--deck-green);
+  }
+  .quality-bottom {
+    display: grid;
+    grid-template-columns: .7fr 1.3fr;
+    gap: 18px;
+    margin-top: 18px;
+    align-items: center;
+  }
+  .quality-bottom .callout {
+    border-left: 4px solid var(--deck-green);
+    padding-left: 18px;
+    font-size: 26px;
+    line-height: 1.35;
+  }
+  .iteration-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 26px;
+  }
+  .iteration-panel {
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 24px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+    min-height: 390px;
+  }
+  .iteration-row {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .iteration-row:last-child {
+    border-bottom: 0;
+  }
+  .iteration-row .label {
+    font-family: var(--font-mono);
+    color: var(--deck-blue);
+    font-size: 13px;
+  }
+  .rule-list {
+    margin: 18px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+    list-style: none;
+  }
+  .rule-list li {
+    border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+    border-radius: 16px;
+    padding: 14px 16px;
+    color: var(--text-2);
+  }
+  .architecture {
+    margin-top: 26px;
+    display: grid;
+    gap: 18px;
+  }
+  .arch-flow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    align-items: stretch;
+  }
+  .arch-node {
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px 18px;
+    min-height: 205px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .arch-node strong {
+    display: block;
+    margin: 10px 0;
+    font-size: 20px;
+  }
+  .arch-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .arch-meta div {
+    border: 1px solid color-mix(in srgb, var(--deck-green) 30%, transparent);
+    border-radius: 18px;
+    padding: 18px;
+    background: linear-gradient(180deg, rgba(46,229,157,.09), rgba(255,255,255,.02));
+  }
+  .qa-layout {
+    display: grid;
+    grid-template-columns: 1.08fr .92fr;
+    gap: 24px;
+    margin-top: 26px;
+    align-items: stretch;
+  }
+  .qa-loop {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .qa-step {
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px;
+    min-height: 170px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .qa-step .tag {
+    font-family: var(--font-mono);
+    color: var(--deck-green);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .risk-panel {
+    border: 1px solid color-mix(in srgb, var(--deck-yellow) 36%, transparent);
+    border-radius: 24px;
+    padding: 24px;
+    background:
+      radial-gradient(circle at 90% 0%, rgba(255,209,102,.16), transparent 46%),
+      color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .ops-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+  }
+  .ops-card {
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px;
+    min-height: 230px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .ops-card .num {
+    font-family: var(--font-mono);
+    font-size: 36px;
+    color: var(--deck-blue);
+    font-weight: 900;
+  }
+  .roadmap-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+    margin-top: 26px;
+  }
+  .roadmap-card {
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 24px;
+    min-height: 360px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .roadmap-card .horizon {
+    font-family: var(--font-mono);
+    color: var(--deck-pink);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: 12px;
+  }
+  .roadmap-card ul {
+    margin: 18px 0 0;
+    padding-left: 18px;
+    color: var(--text-2);
+    line-height: 1.55;
+  }
+  .case-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+    margin-top: 28px;
+  }
+  .case-panel {
+    border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
+    border-radius: 28px;
+    padding: 28px;
+    min-height: 430px;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(106,167,255,.18), transparent 46%),
+      color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .case-panel.accent {
+    border-color: color-mix(in srgb, var(--deck-green) 42%, transparent);
+    background:
+      radial-gradient(circle at 85% 0%, rgba(46,229,157,.2), transparent 46%),
+      color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .case-panel .tool-word {
+    font-size: 90px;
+    line-height: 1;
+    font-weight: 900;
+    margin: 22px 0;
+  }
+  .before-after {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    gap: 18px;
+    align-items: center;
+    margin-top: 26px;
+  }
+  .ba-card {
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 22px;
+    min-height: 255px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .ba-card .big {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 76px;
+    line-height: 1;
+    font-weight: 900;
+    color: var(--deck-green);
+  }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid color-mix(in srgb, var(--deck-green) 38%, transparent);
+    border-radius: 999px;
+    padding: 8px 12px;
+    color: var(--deck-green);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    background: rgba(46,229,157,.08);
+  }
+  .template-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+    margin-top: 26px;
+  }
+  .template-card {
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px;
+    min-height: 230px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .template-card .index {
+    display: inline-flex;
+    width: 34px;
+    height: 34px;
+    border-radius: 99px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    font-family: var(--font-mono);
+    color: #06151e;
+    background: var(--deck-blue);
+  }
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+  }
+  .platform-card {
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 20px;
+    min-height: 250px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .platform-card .platform-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 18px;
+    font-family: var(--font-mono);
+    font-weight: 900;
+    color: #06151e;
+    background: linear-gradient(135deg, var(--deck-pink), var(--deck-blue));
+  }
+  .video-standard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .video-standard-card {
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 22px;
+    min-height: 290px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .prompt-library {
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    gap: 24px;
+    margin-top: 26px;
+    align-items: stretch;
+  }
+  .prompt-library.compact {
+    grid-template-columns: .88fr 1.12fr;
+    gap: 20px;
+  }
+  .prompt-stack {
+    display: grid;
+    gap: 12px;
+  }
+  .prompt-stack.two-col {
+    grid-template-columns: 1fr 1fr;
+    align-content: start;
+  }
+  .prompt-chip {
+    border: 1px solid color-mix(in srgb, var(--deck-pink) 34%, transparent);
+    border-radius: 16px;
+    padding: 14px 16px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .prompt-stack.two-col .prompt-chip {
+    min-height: 118px;
+  }
+  .prompt-chip b {
+    display: block;
+    margin-bottom: 6px;
+  }
+  .standard-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .standard-item {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 14px 16px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+    min-height: 116px;
+  }
+  .standard-item b {
+    display: block;
+    margin-bottom: 7px;
+  }
+  .resource-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 26px;
+  }
+  .resource-card {
+    border: 1px solid color-mix(in srgb, var(--deck-green) 34%, transparent);
+    border-radius: 24px;
+    padding: 24px;
+    min-height: 260px;
+    background:
+      radial-gradient(circle at 90% 0%, rgba(46,229,157,.14), transparent 46%),
+      color-mix(in srgb, var(--surface) 86%, transparent);
+  }
+  .resource-card a {
+    display: inline-block;
+    margin-top: 18px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  .video-demo-layout {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 24px;
+    margin-top: 24px;
+    align-items: stretch;
+  }
+  .video-stage {
+    border: 1px solid color-mix(in srgb, var(--deck-green) 38%, transparent);
+    border-radius: 26px;
+    padding: 16px;
+    background:
+      radial-gradient(circle at 85% 0%, rgba(46,229,157,.16), transparent 44%),
+      color-mix(in srgb, var(--surface) 88%, transparent);
+    min-height: 470px;
+  }
+  .video-stage video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: block;
+    border-radius: 18px;
+    background: #050812;
+    border: 1px solid var(--border);
+    object-fit: contain;
+  }
+  .video-caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 14px;
+    color: var(--text-2);
+  }
+  .sample-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .sample-button {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 14px 15px;
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+    color: var(--text-1);
+    text-align: left;
+    min-height: 100px;
+    cursor: pointer;
+    font: inherit;
+  }
+  .sample-button b {
+    display: block;
+    margin-bottom: 7px;
+  }
+  .sample-button span {
+    color: var(--text-2);
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .sample-button.is-active {
+    border-color: var(--deck-green);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--deck-green) 32%, transparent), 0 0 24px rgba(46,229,157,.16);
+  }
+  .closing-grid {
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    gap: 30px;
+    align-items: center;
+  }
+  .quote-line {
+    border-left: 4px solid var(--deck-green);
+    padding-left: 22px;
+    font-size: 32px;
+    line-height: 1.34;
+    color: var(--text-1);
+  }
+  .muted-list {
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+  .muted-list li {
+    color: var(--text-2);
+  }
+  .muted-list li::before {
+    content: "✓";
+    color: var(--deck-green);
+    margin-right: 10px;
+  }
+  .notes, aside.notes { display: none !important; }
+</style>
+</head>
+<body data-theme-base="../../.codex/skills/html-ppt/assets/themes/">
+<div class="deck">
+  <div class="deck-mark">AI Workflow Builder · Year Review</div>
+
+  <section class="slide" data-title="Cover">
+    <div class="hero-grid">
+      <div>
+        <p class="kicker">成果展示 / AI 内容生产工作流</p>
+        <h1 class="h1 anim-fade-up" data-anim="fade-up">我把内容生产<br><span class="gradient-text">从人工执行升级为 AI 工作流矩阵</span></h1>
+        <p class="lede">围绕 SEO 文章生成、产品页面优化、海外社媒视频生产三个项目，完成从业务理解、标准化模板、工作流编排到批量化生产的全链路搭建。</p>
+        <div class="metric-hero">
+          <div class="metric-box">
+            <span class="metric-num">300</span>
+            <div class="metric-label">SEO 文章 / 3人日</div>
+          </div>
+          <div class="arrow-burst">→</div>
+          <div class="metric-box">
+            <span class="metric-num">100</span>
+            <div class="metric-label">产品页 / 人日</div>
+          </div>
+        </div>
+        <div class="kpi-strip" style="grid-template-columns:1fr;margin-top:18px;">
+          <div class="kpi" style="padding:18px 22px;">
+            <span class="big" style="font-size:46px;">20</span>
+            <h3>海外社媒视频 / 日</h3>
+          </div>
+        </div>
+      </div>
+      <div class="signal-panel">
+        <div data-fx="data-stream" style="height:360px;border-radius:22px;overflow:hidden;border:1px solid var(--border);"></div>
+        <p class="dim mt-m">Notion / 飞书输入 → 大模型生成 → Coze / n8n 工作流 → 结果回写 → 批量生产</p>
+      </div>
+    </div>
+    <div class="deck-footer"><span>AI工作流搭建师 · 年度成果</span><span class="slide-number" data-current="1" data-total="26"></span></div>
+    <aside class="notes">
+      <p>这一页先把年度成果放在最前面。今年我不是只做了一个单点 AI 工具，而是围绕内容生产搭建了三套可以进入真实生产的 AI 工作流。</p>
+      <p>第一个项目是 SEO 文章生成，从 3 人日产 60 篇提升到 300 篇；第二个项目是海外独立站产品页面内容优化，从 1 人日产 50 个页面提升到 100 个页面；第三个项目是海外社媒视频生产，实现日产 20 条视频，并支撑每月全平台定时发布。</p>
+      <p>我希望这份展示传达的不是“我会用 AI 写内容”，而是“我能把不同内容业务拆开、标准化、接入工作流，并让它们变成可持续放大的生产系统”。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Why this problem mattered">
+    <p class="kicker">01 / 背景与问题</p>
+    <h2 class="h2">真正要解决的不是“写得快”，而是“稳定、便宜、可控地产出”</h2>
+    <div class="problem-layout">
+      <div class="problem-statement">
+        <div>
+          <p class="kicker">Original constraint</p>
+          <div class="large-word gradient-text">Scale<br>Pressure</div>
+        </div>
+        <p class="lede">SEO 内容生产天然要求规模，但人工写作链路里，效率、质量、成本很容易互相拉扯。</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card"><b>产能上限明显</b><p class="dim">人工逐篇处理时，标题理解、关键词分布、段落组织都会消耗稳定工时。</p></div>
+        <div class="pain-card"><b>质量依赖经验</b><p class="dim">不同人员对 SEO 结构、关键词自然度、业务边界的理解不完全一致。</p></div>
+        <div class="pain-card"><b>复盘成本偏高</b><p class="dim">如果输入、生成过程和结果没有沉淀，后续很难判断问题来自哪里。</p></div>
+        <div class="pain-card"><b>工具成本敏感</b><p class="dim">内容量越大，单篇生成成本越关键，方案不能只追求“能用”，还要算账。</p></div>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Problem framing: throughput · quality · traceability · cost</span><span class="slide-number" data-current="2" data-total="26"></span></div>
+    <aside class="notes">
+      <p>这一页补充项目背景。SEO 文章生产不是单纯追求快，它真正的挑战是同时满足四件事：产能要能放大，质量要稳定，过程要可追踪，成本还要足够低。</p>
+      <p>如果只看“让 AI 写一篇文章”，这个问题会被低估。但放到真实生产里，团队每天要处理很多标题和关键词，任何一点质量波动都会被规模放大，任何一点成本也都会随着数量上涨。</p>
+      <p>所以我一开始就没有把它当成一个写作工具来做，而是把它当成一个内容生产系统来拆。只有这样，后面的提示词、工作流、Notion 记录和质检闭环才会有明确的设计目标。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="I did not automate before understanding the business">
+    <p class="kicker">02 / 业务理解先行</p>
+    <h2 class="h2">我没有急着自动化，而是先把原业务流程跑通了一遍</h2>
+    <div class="phase-grid anim-stagger-list" data-anim-target>
+      <div class="phase-card"><div class="tag">Research</div><h4>调研原方案</h4><p>先理解团队原有 SEO 文章生产方式、角色分工、输入输出和验收标准。</p></div>
+      <div class="phase-card"><div class="tag">Hands-on</div><h4>亲自实操</h4><p>不站在外部猜流程，而是自己按原方案完整执行一次。</p></div>
+      <div class="phase-card"><div class="tag">Logic</div><h4>梳理业务逻辑</h4><p>拆清每一步为什么存在、依赖什么信息、质量风险在哪里。</p></div>
+      <div class="phase-card"><div class="tag">Sample</div><h4>产出样稿</h4><p>用原方案生成一篇 SEO 文章，提交专业优化师质检。</p></div>
+      <div class="phase-card"><div class="tag">Proof</div><h4>验证可行</h4><p>确认自己能成功执行原方案后，再开始设计 AI 化方案。</p></div>
+    </div>
+    <div class="deck-footer"><span>Principle: understand before automate</span><span class="slide-number" data-current="3" data-total="26"></span></div>
+    <aside class="notes">
+      <p>我做这个项目的第一步不是打开工具，也不是直接写提示词，而是先把原来的人工方案完整理解清楚。</p>
+      <p>我先调研原方案，然后亲自实操原方案，梳理每一步的业务逻辑。这里的关键是：如果我自己都不能用原方案成功生成一篇合格文章，那我其实没有资格去做自动化。</p>
+      <p>所以我先用原方案生成了一篇 SEO 文章，并提交给专业优化师做质检。通过这个动作，我确认了质量标准、业务判断点、关键词插入逻辑、文章结构要求，也理解了哪些环节可以交给 AI，哪些环节必须设计校验。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Define the quality bar before designing prompts">
+    <p class="kicker">03 / 质量标准拆解</p>
+    <h2 class="h2">我先把“合格文章”拆成模型能执行、优化师能验收的标准</h2>
+    <div class="quality-grid anim-stagger-list" data-anim-target>
+      <div class="quality-card"><span class="index">1</span><h3>结构完整</h3><p class="dim">文章需要有清晰标题、开头、主体段落和收束，而不是一整块松散文本。</p></div>
+      <div class="quality-card"><span class="index">2</span><h3>关键词自然</h3><p class="dim">关键词要覆盖核心位置，但不能堆砌，必须和语义、上下文一起成立。</p></div>
+      <div class="quality-card"><span class="index">3</span><h3>业务边界准确</h3><p class="dim">不能为了流畅而编造业务承诺，也不能偏离原始标题和目标受众。</p></div>
+      <div class="quality-card"><span class="index">4</span><h3>可读性稳定</h3><p class="dim">段落长度、表达节奏、术语密度要稳定，避免一篇能用一篇失控。</p></div>
+      <div class="quality-card"><span class="index">5</span><h3>可批量复制</h3><p class="dim">规则必须能适配不同标题和关键词，而不是只针对单篇样稿调参。</p></div>
+      <div class="quality-card"><span class="index">6</span><h3>便于复核</h3><p class="dim">输出要让优化师快速判断问题，而不是把质检压力重新推回人工。</p></div>
+    </div>
+    <div class="quality-bottom">
+      <div class="callout">质量标准先清晰，提示词才不会只靠感觉迭代。</div>
+      <p class="lede">这一步把优化师的经验要求翻译成了提示词约束、工作流节点和结果库字段。</p>
+    </div>
+    <div class="deck-footer"><span>Quality bar: structure · keywords · boundary · readability · repeatability</span><span class="slide-number" data-current="4" data-total="26"></span></div>
+    <aside class="notes">
+      <p>在进入提示词之前，我先做了一件很重要的事：把“合格文章”拆成可执行标准。</p>
+      <p>因为如果质量标准只停留在“写得像人”“SEO 友好”“看起来不错”，模型很难稳定执行，优化师也很难给出可复用的反馈。所以我把标准拆成结构完整、关键词自然、业务边界准确、可读性稳定、可批量复制、便于复核这几个维度。</p>
+      <p>这一步的价值在后面会不断体现。提示词不是凭感觉改，而是围绕这些标准逐项修；工作流不是随便串节点，而是围绕这些标准设置输入、生成和结果沉淀。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="The first breakthrough was prompt engineering, not workflow tooling">
+    <p class="kicker">04 / 提示词工程打底</p>
+    <h2 class="h2">第一个突破不是工具选型，而是让 GPT 稳定写出合格文章</h2>
+    <div class="logic-map">
+      <div class="logic-node">
+        <p class="kicker">Input</p>
+        <h3>标题与关键词</h3>
+        <p class="dim">把人工需要提供的标题、关键词、业务要求转换成模型可执行的结构化输入。</p>
+      </div>
+      <div class="logic-arrow">→</div>
+      <div class="logic-node">
+        <p class="kicker">Prompt</p>
+        <h3>纯提示词生成</h3>
+        <p class="dim">先不用复杂工作流，只用 GPT 反复打磨：标题理解、关键词插入、段落结构、最终成文。</p>
+      </div>
+      <div class="logic-arrow">→</div>
+      <div class="logic-node">
+        <p class="kicker">QA</p>
+        <h3>优化师质检</h3>
+        <p class="dim">第一版 AI 文章交给专业优化师检查，根据反馈继续迭代提示词。</p>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Prompt first, workflow second</span><span class="slide-number" data-current="5" data-total="26"></span></div>
+    <aside class="notes">
+      <p>真正进入 AI 方案设计后，我没有马上去搭工作流，而是先用 GPT 做纯提示词实验。</p>
+      <p>这一步的目标很明确：先证明模型本身能不能写出接近业务标准的 SEO 文章。我围绕文章标题、关键词插入、文章结构、最终生成结果，不断打磨提示词工程。</p>
+      <p>第一版 AI 生成文章出来后，我依然交给优化师质检。这里的反馈非常关键，因为它把“模型看起来写得不错”变成了“业务专家认为哪里还不够”。经过多轮打磨后，我才进入完整工作流框架的调研和选型。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Prompt iteration path">
+    <p class="kicker">05 / 提示词迭代路径</p>
+    <h2 class="h2">提示词不是一次写成的，而是按“问题类型”持续收敛</h2>
+    <div class="iteration-grid">
+      <div class="iteration-panel">
+        <p class="kicker">Iteration log</p>
+        <div class="iteration-row"><span class="label">Round 01</span><div><b>先让模型完成整篇生成</b><p class="dim">验证 GPT 是否能理解标题、关键词和基础 SEO 写作结构。</p></div></div>
+        <div class="iteration-row"><span class="label">Round 02</span><div><b>修正关键词插入方式</b><p class="dim">解决关键词机械堆砌、出现位置不稳定、语义不自然的问题。</p></div></div>
+        <div class="iteration-row"><span class="label">Round 03</span><div><b>补充业务边界约束</b><p class="dim">约束模型不要扩写到无关场景，也不要生成无法确认的承诺。</p></div></div>
+        <div class="iteration-row"><span class="label">Round 04</span><div><b>沉淀成可复用模板</b><p class="dim">把有效经验固化为输入字段、提示词片段和工作流节点。</p></div></div>
+      </div>
+      <div class="iteration-panel">
+        <p class="kicker">Prompt design rules</p>
+        <h3>我把提示词拆成稳定模块，而不是写成一段长命令</h3>
+        <ul class="rule-list">
+          <li><b>角色与目标：</b>明确模型在写什么、为谁写、最终交付什么。</li>
+          <li><b>输入字段：</b>让标题、关键词、业务要求进入固定位置，减少自由发挥。</li>
+          <li><b>结构约束：</b>规定段落、标题层级、关键词出现方式和输出格式。</li>
+          <li><b>负面约束：</b>明确不能编造、不能堆砌、不能偏离主题的边界。</li>
+          <li><b>验收标准：</b>把优化师反馈转成模型生成前就能看到的规则。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Prompt iteration: generate · inspect · classify · constrain · reuse</span><span class="slide-number" data-current="6" data-total="26"></span></div>
+    <aside class="notes">
+      <p>这一页讲提示词是怎么迭代出来的。它不是一次写一大段神奇指令，而是先让模型完成整篇生成，再根据真实问题一点点收敛。</p>
+      <p>比如第一轮先验证模型能不能写完整；第二轮重点修关键词插入，让关键词自然出现，而不是机械堆砌；第三轮补业务边界，避免模型写出无法确认的承诺；最后再把有效规则沉淀成可复用模板。</p>
+      <p>这里我最大的体会是：好的提示词工程不是把话写得很复杂，而是把业务要求拆成稳定模块。角色、输入、结构、负面约束和验收标准越清楚，后面接入工作流时越稳。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Coze became the low-cost workflow engine that connected every step">
+    <p class="kicker">06 / 工作流落地</p>
+    <h2 class="h2">Coze 成为低成本、可接入 GPT 的全流程工作流引擎</h2>
+    <div class="workflow">
+      <div class="flow-stack">
+        <div class="flow-item"><b>人工输入表</b><span>标题、关键词、业务字段和待生成任务</span></div>
+        <div class="flow-item"><b>业务规则</b><span>文章结构、关键词位置、内容边界</span></div>
+        <div class="flow-item"><b>质检反馈</b><span>优化师反馈回流到提示词与流程设计</span></div>
+      </div>
+      <div class="center-engine">
+        <p class="kicker">Coze International</p>
+        <div class="engine-word gradient-text">Workflow</div>
+        <p class="lede" style="margin:18px auto 0;">低成本、可调用 GPT、适合把提示词链路产品化。</p>
+      </div>
+      <div class="flow-stack">
+        <div class="flow-item"><b>文章生成</b><span>由工作流自动完成文章主体生产</span></div>
+        <div class="flow-item"><b>结果记录</b><span>最终文章回写到 Notion 结果库</span></div>
+        <div class="flow-item"><b>规模运行</b><span>从单篇验证进入日常批量生产</span></div>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Tool choice: low cost + GPT access + workflow orchestration</span><span class="slide-number" data-current="7" data-total="26"></span></div>
+    <aside class="notes">
+      <p>在提示词方案被验证后，我开始调研工作流框架，最后选定了 Coze 国际版。</p>
+      <p>选择 Coze 的原因很现实：它成本低，而且能用上 GPT。对这个项目来说，我们需要的不是一个炫技平台，而是一个可以把输入、提示词、生成、记录串起来的稳定工作流引擎。</p>
+      <p>完整流程里，人工提供输入表，工作流读取任务信息，再按照已经验证过的提示词逻辑生成文章，最终把文章记录到 Notion 结果库。这样一来，人工不再逐篇写，而是转向提供输入、检查异常和管理产出。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Workflow architecture">
+    <p class="kicker">07 / 系统架构</p>
+    <h2 class="h2">完整链路被拆成 5 个稳定节点，方便排查、复用和扩展</h2>
+    <div class="architecture">
+      <div class="arch-flow">
+        <div class="arch-node"><p class="kicker">01</p><strong>任务读取</strong><p class="dim">从 Notion 输入表读取标题、关键词、业务字段和生成状态。</p></div>
+        <div class="arch-node"><p class="kicker">02</p><strong>输入整理</strong><p class="dim">把人工输入转成模型可理解的结构，减少遗漏和格式漂移。</p></div>
+        <div class="arch-node"><p class="kicker">03</p><strong>GPT 生成</strong><p class="dim">调用已经验证过的提示词模块，生成符合规则的文章正文。</p></div>
+        <div class="arch-node"><p class="kicker">04</p><strong>结果回写</strong><p class="dim">把生成结果沉淀到 Notion 结果库，保留任务和产出关系。</p></div>
+        <div class="arch-node"><p class="kicker">05</p><strong>人工复核</strong><p class="dim">优化师检查样本和异常，把反馈继续回流到规则层。</p></div>
+      </div>
+      <div class="arch-meta">
+        <div><b>低门槛使用</b><p class="dim">使用者只面对输入表，不需要理解后端工作流细节。</p></div>
+        <div><b>可定位问题</b><p class="dim">输入、生成、回写各自独立，出错时能判断是哪一段出了问题。</p></div>
+        <div><b>可复制扩展</b><p class="dim">同样结构可迁移到客服话术、运营文案、销售资料等内容型流程。</p></div>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Architecture: input · normalize · generate · write back · review</span><span class="slide-number" data-current="8" data-total="26"></span></div>
+    <aside class="notes">
+      <p>这一页把架构讲清楚。完整链路不是一条模糊的“AI 自动写文章”，而是拆成五个稳定节点：任务读取、输入整理、GPT 生成、结果回写和人工复核。</p>
+      <p>这样拆有三个好处。第一，使用门槛低，团队成员只需要维护 Notion 输入表；第二，可排查，任何问题都能定位到输入、生成或回写环节；第三，可扩展，同样的架构可以迁移到其他内容型流程。</p>
+      <p>我认为这是工作流搭建里很关键的一点：不要把所有逻辑塞进一个黑盒节点。只有节点边界清楚，系统才真的可维护。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="The production system is anchored by three visible control points">
+    <p class="kicker">08 / 可追踪的生产系统</p>
+    <h2 class="h2">我把生产系统固定在三个可追踪入口上</h2>
+    <div class="source-grid">
+      <div class="source-card">
+        <p class="kicker">Workflow</p>
+        <h3>Coze 工作流库</h3>
+        <p class="dim">承载完整 SEO 文章生成流程，负责把提示词逻辑变成可运行链路。</p>
+        <a href="https://www.coze.com/space/7507506819678617606/library" target="_blank">打开 Coze Library →</a>
+      </div>
+      <div class="source-card">
+        <p class="kicker">Input</p>
+        <h3>Notion 输入表</h3>
+        <p class="dim">人工只需要提供任务输入，降低使用门槛，统一生产入口。</p>
+        <a href="https://www.notion.so/1fd3235e9375804aa022fd4407a99375?v=1fd3235e93758074bb3d000cedde30c1" target="_blank">打开输入表 →</a>
+      </div>
+      <div class="source-card">
+        <p class="kicker">Output</p>
+        <h3>Notion 结果库</h3>
+        <p class="dim">最终文章沉淀到结果库，便于记录、质检、复盘和统计。</p>
+        <a href="https://www.notion.so/2183235e93758035be48c2bda001f083?v=2183235e937580469d46000cba42a4b6" target="_blank">打开结果库 →</a>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Visibility: workflow · input · output</span><span class="slide-number" data-current="9" data-total="26"></span></div>
+    <aside class="notes">
+      <p>这套系统不是一个黑盒。我把它固定在三个可追踪入口上：Coze 工作流库、Notion 输入表、Notion 结果库。</p>
+      <p>Coze 负责运行生成逻辑，Notion 输入表负责承接人工任务，Notion 结果库负责保存最终文章。这三个入口让流程可管理、可复盘，也方便后续扩展。</p>
+      <p>这也是 AI 工作流搭建和单次 AI 使用的区别：单次使用只关心这一次能不能生成；工作流搭建要关心输入如何标准化、输出如何沉淀、质检如何介入、团队如何持续使用。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="The system already delivered a fivefold capacity jump at zero AI tool cost">
+    <p class="kicker">09 / 结果</p>
+    <h2 class="h2">系统已经实现 5 倍产能跃迁，AI 工具成本为 0</h2>
+    <div class="kpi-strip">
+      <div class="kpi">
+        <span class="big counter" data-to="60">0</span>
+        <h3>篇 / 日</h3>
+        <p class="dim">原目标：3 人日产 60 篇 SEO 文章</p>
+      </div>
+      <div class="kpi">
+        <span class="big counter" data-to="300">0</span>
+        <h3>篇 / 日</h3>
+        <p class="dim">当前：3 人日产 300 篇，且未触及上限</p>
+      </div>
+      <div class="kpi">
+        <span class="big">0</span>
+        <h3>工具成本</h3>
+        <p class="dim">AI 工具成本为 0，超量达成目标</p>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Outcome: 3 people · 300 articles/day · zero AI tool cost</span><span class="slide-number" data-current="10" data-total="26"></span></div>
+    <aside class="notes">
+      <p>最终结果非常直接：从 3 人日产 60 篇的目标，提升到目前 3 人日产 300 篇。</p>
+      <p>这意味着产能提升了 5 倍，而且这个 300 篇并不是上限，只是当前实际运行到的水平。更重要的是，AI 工具成本为 0。</p>
+      <p>这里我想强调两点。第一，这不是一次性 demo，而是实际进入生产的工作流。第二，结果不是单靠模型能力产生的，而是业务理解、提示词工程、工具选型、流程设计和质检闭环共同作用的结果。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Quality control loop">
+    <p class="kicker">10 / 质检闭环</p>
+    <h2 class="h2">我没有把质检拿掉，而是把质检从“逐篇救火”变成“规则迭代”</h2>
+    <div class="qa-layout">
+      <div class="qa-loop">
+        <div class="qa-step"><div class="tag">Sample</div><h3>抽样检查</h3><p class="dim">不追求完全无人工，而是用抽样确认输出是否保持在可接受范围内。</p></div>
+        <div class="qa-step"><div class="tag">Classify</div><h3>问题归因</h3><p class="dim">把问题分成关键词、结构、语义、业务边界、格式等类别。</p></div>
+        <div class="qa-step"><div class="tag">Patch</div><h3>规则修正</h3><p class="dim">能用提示词解决的进入提示词，能用输入约束解决的进入字段规则。</p></div>
+        <div class="qa-step"><div class="tag">Deploy</div><h3>回到生产</h3><p class="dim">修正后的规则进入 Coze 工作流，再用后续样本继续验证。</p></div>
+      </div>
+      <div class="risk-panel">
+        <p class="kicker">Human-in-the-loop</p>
+        <h3>质检角色从“内容修补者”变成“系统训练者”</h3>
+        <p class="lede">优化师不再把主要时间花在逐篇重写，而是把反馈变成规则，让下一批内容自动受益。</p>
+        <ul class="muted-list">
+          <li>保留专家判断，避免盲目全自动</li>
+          <li>把高频问题沉淀为可复用约束</li>
+          <li>让系统越跑越接近业务标准</li>
+        </ul>
+      </div>
+    </div>
+    <div class="deck-footer"><span>QA loop: sample · classify · patch · deploy</span><span class="slide-number" data-current="11" data-total="26"></span></div>
+    <aside class="notes">
+      <p>这里我想强调一个点：这个系统并没有取消质检，而是改变了质检的作用。</p>
+      <p>原来质检更像逐篇救火，发现一篇问题就修一篇。工作流上线后，质检变成了规则迭代：抽样检查、问题归因、修正规则、回到生产。这样一来，优化师的经验不会只停留在某一篇文章上，而会被沉淀到下一批生成里。</p>
+      <p>这也是我理解的人机协作。AI 负责扩大产能，专家负责定义边界和校正方向。不是盲目全自动，而是让专家判断变成系统的一部分。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Operating model">
+    <p class="kicker">11 / 运行机制</p>
+    <h2 class="h2">上线后，团队从“写文章”切换成“管理一条内容生产线”</h2>
+    <div class="ops-grid anim-stagger-list" data-anim-target>
+      <div class="ops-card"><div class="num">01</div><h3>准备任务</h3><p class="dim">在输入表维护标题、关键词和必要业务字段。</p></div>
+      <div class="ops-card"><div class="num">02</div><h3>批量触发</h3><p class="dim">按批次运行 Coze 工作流，生成文章并沉淀结果。</p></div>
+      <div class="ops-card"><div class="num">03</div><h3>查看结果</h3><p class="dim">在结果库确认生成状态、正文内容和任务对应关系。</p></div>
+      <div class="ops-card"><div class="num">04</div><h3>抽样复核</h3><p class="dim">优化师检查代表样本，识别高频问题和异常输出。</p></div>
+      <div class="ops-card"><div class="num">05</div><h3>规则升级</h3><p class="dim">把反馈回流到提示词、输入规范和工作流节点。</p></div>
+    </div>
+    <div class="quality-bottom">
+      <div class="callout">人的工作重心，从重复生产转向输入管理、异常判断和系统优化。</div>
+      <p class="lede">这就是 3 人日产从 60 篇提升到 300 篇的核心原因：不是让人更拼，而是让人站到更高杠杆的位置。</p>
+    </div>
+    <div class="deck-footer"><span>Operating model: prepare · run · inspect · review · improve</span><span class="slide-number" data-current="12" data-total="26"></span></div>
+    <aside class="notes">
+      <p>上线之后，团队的工作方式发生了变化。原来大家的主要动作是逐篇写、逐篇改；现在变成准备任务、批量触发、查看结果、抽样复核、规则升级。</p>
+      <p>人的价值没有消失，而是从低杠杆的重复生产，转向高杠杆的输入管理、异常判断和系统优化。也正因为人的位置变了，产能才会从 60 篇提升到 300 篇。</p>
+      <p>这页可以帮助听众理解：成果不是单纯来自某个工具，而是来自运行机制的改变。AI 工作流真正放大的，是人的判断力和组织方式。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Project two product page optimization">
+    <p class="kicker">12 / 第二项目：产品页面内容优化</p>
+    <h2 class="h2">我把海外独立站产品页，从低质量信息页升级成标准化 SEO 内容资产</h2>
+    <div class="case-hero">
+      <div class="case-panel">
+        <p class="kicker">Before</p>
+        <h3>原产品页面的问题</h3>
+        <ul class="muted-list">
+          <li>页面信息少，产品价值表达不完整</li>
+          <li>SEO 关键词嵌入不足，收录率低</li>
+          <li>内容质量差，页面结构不统一</li>
+          <li>人工逐页优化，单人日产约 50 页</li>
+        </ul>
+      </div>
+      <div class="case-panel accent">
+        <p class="kicker">After</p>
+        <div class="tool-word gradient-text">n8n</div>
+        <h3>工作流化优化方案</h3>
+        <p class="lede">通过 n8n 编排大模型、Notion 输入输出表和文档链接回写，把产品页优化变成可批量执行的标准流程。</p>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Project 02: product page optimization · n8n workflow</span><span class="slide-number" data-current="13" data-total="26"></span></div>
+    <aside class="notes">
+      <p>第二个项目是海外独立站产品页面内容优化。这个项目和 SEO 文章生成不同，它面对的是大量已有产品页面，这些页面原来的问题是信息少、收录率低、内容质量差。</p>
+      <p>我的目标不是简单改几页文案，而是把产品页面优化变成一个标准化、可批量生产的流程。这里我选择的工具是 n8n，因为它更适合做跨工具编排、状态流转和自动回写。</p>
+      <p>这个项目最终把单人日产从大约 50 个页面提升到 100 个页面，说明第一个项目里沉淀出来的内容工作流能力，已经可以迁移到新的业务场景里。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Product page workflow architecture">
+    <p class="kicker">13 / n8n 工作流架构</p>
+    <h2 class="h2">n8n 负责把 Notion 任务、大模型生成和状态回写串成闭环</h2>
+    <div class="architecture">
+      <div class="arch-flow">
+        <div class="arch-node"><p class="kicker">01</p><strong>读取任务</strong><p class="dim">从 Notion 中获取状态为“未开始”的产品页优化任务。</p></div>
+        <div class="arch-node"><p class="kicker">02</p><strong>传递字段</strong><p class="dim">把任务信息、SEO 关键词和产品原始资料传递给大模型。</p></div>
+        <div class="arch-node"><p class="kicker">03</p><strong>生成内容</strong><p class="dim">根据 TKD、产品简介、描述、场景、优势和 FAQ 生成优化内容。</p></div>
+        <div class="arch-node"><p class="kicker">04</p><strong>输出文档</strong><p class="dim">生成可下载的文档链接，便于团队查看、交付和沉淀。</p></div>
+        <div class="arch-node"><p class="kicker">05</p><strong>回写状态</strong><p class="dim">把文档下载链接传回 Notion，并自动切换为“已完成”。</p></div>
+      </div>
+      <div class="arch-meta">
+        <div><b>状态驱动</b><p class="dim">用“未开始/已完成”控制任务流转，避免人工追踪遗漏。</p></div>
+        <div><b>字段驱动</b><p class="dim">用标准字段约束模型生成，减少页面之间的质量漂移。</p></div>
+        <div><b>链接回写</b><p class="dim">最终结果以文档下载链接沉淀到 Notion，方便统一管理。</p></div>
+      </div>
+    </div>
+    <div class="deck-footer"><span>n8n architecture: Notion status · LLM generation · document link · write back</span><span class="slide-number" data-current="14" data-total="26"></span></div>
+    <aside class="notes">
+      <p>这一页是第二个项目的核心流程。n8n 从 Notion 表里读取状态为“未开始”的任务，把任务信息传递给大模型，然后让模型根据标准字段生成产品页优化内容。</p>
+      <p>生成内容包含 TKD、产品简介、产品描述、使用场景、产品优势和 FAQ，同时在内容中自然插入 SEO 关键词。生成完成后，系统会形成文档下载链接，再把链接传回 Notion，并把任务状态自动切换成“已完成”。</p>
+      <p>这个闭环的关键是状态驱动和字段驱动。状态让任务自动流转，字段让内容质量保持一致。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Product page template standardization">
+    <p class="kicker">14 / 页面模板标准化</p>
+    <h2 class="h2">标准化模板让产品页优化从经验操作变成可复制生产</h2>
+    <div class="template-grid anim-stagger-list" data-anim-target>
+      <div class="template-card"><span class="index">1</span><h3>TKD</h3><p class="dim">围绕页面标题、描述和关键词建立基础 SEO 信号。</p></div>
+      <div class="template-card"><span class="index">2</span><h3>产品简介</h3><p class="dim">快速说明产品是什么、解决什么问题、适合谁使用。</p></div>
+      <div class="template-card"><span class="index">3</span><h3>产品描述</h3><p class="dim">补全核心功能、细节信息和购买前需要理解的内容。</p></div>
+      <div class="template-card"><span class="index">4</span><h3>使用场景</h3><p class="dim">把产品放进具体场景，提高页面可读性和搜索相关性。</p></div>
+      <div class="template-card"><span class="index">5</span><h3>产品优势</h3><p class="dim">提炼差异化卖点，避免页面只有参数没有价值表达。</p></div>
+      <div class="template-card"><span class="index">6</span><h3>FAQ</h3><p class="dim">覆盖购买疑问和长尾搜索问题，增强页面内容深度。</p></div>
+    </div>
+    <div class="quality-bottom">
+      <div class="callout">模板不是限制创作，而是保证批量页面都达到最低质量线。</div>
+      <p class="lede">每个页面都按同一组内容模块展开，同时把 SEO 关键词嵌入到自然语境里。</p>
+    </div>
+    <div class="deck-footer"><span>Template: TKD · intro · description · scenario · advantages · FAQ</span><span class="slide-number" data-current="15" data-total="26"></span></div>
+    <aside class="notes">
+      <p>产品页面优化项目里，最重要的设计不是让模型随便扩写，而是先定义一个标准化页面模板。</p>
+      <p>这个模板包含 TKD、产品简介、产品描述、使用场景、产品优势和 FAQ。这样每个页面都会有基本完整的信息结构，也能把 SEO 关键词嵌入到标题、描述和正文语境里。</p>
+      <p>标准化模板的价值是：它把“优化页面”从依赖个人经验的动作，变成了可以批量复制的生产规则。页面可以不同，但质量底线和结构框架是一致的。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Product page Notion control center">
+    <p class="kicker">15 / Notion 控制台</p>
+    <h2 class="h2">Notion 既是任务入口，也是结果回写和进度追踪中心</h2>
+    <div class="source-grid">
+      <div class="source-card">
+        <p class="kicker">Input</p>
+        <h3>未开始任务</h3>
+        <p class="dim">n8n 只读取状态为“未开始”的任务，避免重复处理已经完成的页面。</p>
+        <span class="status-pill">Not Started</span>
+      </div>
+      <div class="source-card">
+        <p class="kicker">Output</p>
+        <h3>文档下载链接</h3>
+        <p class="dim">生成完成后，把优化结果以文档下载链接形式回写到 Notion。</p>
+        <a href="https://www.notion.so/28e3235e937580579d55c4f99cbbcd2e?v=28e3235e937581428142000c06ea318c" target="_blank">打开产品页优化表 →</a>
+      </div>
+      <div class="source-card">
+        <p class="kicker">Status</p>
+        <h3>自动切换完成</h3>
+        <p class="dim">任务处理完后，状态自动切换为“已完成”，让生产进度一眼可见。</p>
+        <span class="status-pill">Completed</span>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Notion control center: task status · document link · production tracking</span><span class="slide-number" data-current="16" data-total="26"></span></div>
+    <aside class="notes">
+      <p>这个项目里，Notion 依旧是输入输出表，但它不只是记录数据，而是整个流程的控制台。</p>
+      <p>n8n 会读取状态为“未开始”的任务，生成完成后把文档下载链接写回同一张表，并自动把状态切换为“已完成”。这样团队不需要额外追踪每个页面做到哪一步，只看 Notion 就能知道任务状态和结果入口。</p>
+      <p>我把你提供的 Notion 表链接也放到了页面里，方便展示时直接打开对应任务表。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Product page optimization results">
+    <p class="kicker">16 / 第二项目结果</p>
+    <h2 class="h2">产品页面优化效率提升 100%，单人日产从 50 页提升到 100 页</h2>
+    <div class="before-after">
+      <div class="ba-card">
+        <p class="kicker">Before</p>
+        <span class="big counter" data-to="50">0</span>
+        <h3>页 / 人 / 日</h3>
+        <p class="dim">原先一人一天约优化 50 个产品页面，且质量依赖人工经验。</p>
+      </div>
+      <div class="arrow-burst">→</div>
+      <div class="ba-card">
+        <p class="kicker">After</p>
+        <span class="big counter" data-to="100">0</span>
+        <h3>页 / 人 / 日</h3>
+        <p class="dim">现在一人一天可优化约 100 个页面，进入标准化批量生产。</p>
+      </div>
+    </div>
+    <div class="arch-meta" style="margin-top:22px;">
+      <div><b>内容更完整</b><p class="dim">产品简介、描述、场景、优势、FAQ 全部进入模板。</p></div>
+      <div><b>SEO 更稳定</b><p class="dim">关键词不再零散添加，而是嵌入标准页面结构。</p></div>
+      <div><b>流程更可控</b><p class="dim">任务、文档链接和完成状态全部回到 Notion。</p></div>
+    </div>
+    <div class="deck-footer"><span>Outcome: 50 pages/day → 100 pages/day · +100% productivity</span><span class="slide-number" data-current="17" data-total="26"></span></div>
+    <aside class="notes">
+      <p>第二个项目的结果也很直接：原来一个人一天只能优化大约 50 个产品页面，现在可以优化到 100 个页面，效率提升 100%。</p>
+      <p>更重要的是，这个提升不是靠人更快地改页面，而是靠流程变了。产品页面的内容结构被标准化，SEO 关键词嵌入有了规则，生成结果和任务状态都能回到 Notion。</p>
+      <p>这个项目和第一个项目放在一起，就能证明我的能力不是局限于文章生成，而是能把不同类型的内容生产场景都转成工作流。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Project three overseas social media video workflow">
+    <p class="kicker">17 / 第三项目：海外社媒渠道建设</p>
+    <h2 class="h2">我用 AI 视频生成，为企业搭建海外社媒品牌内容生产机制</h2>
+    <div class="case-hero">
+      <div class="case-panel">
+        <p class="kicker">Goal</p>
+        <h3>让品牌在海外主流社媒拥有持续露出</h3>
+        <ul class="muted-list">
+          <li>TikTok、YouTube、Facebook、Instagram、LinkedIn 等平台建立品牌账号</li>
+          <li>每月定时发布 4 条全平台产品宣传视频</li>
+          <li>用 AI 视频生成降低内容启动成本</li>
+          <li>把视频制作流程沉淀成教程和发布规则</li>
+        </ul>
+      </div>
+      <div class="case-panel accent">
+        <p class="kicker">Production</p>
+        <div class="tool-word gradient-text">20</div>
+        <h3>条视频 / 日</h3>
+        <p class="lede">通过 n8n 连接飞书，调用 Sora2 进行视频生成，把海外社媒视频从临时制作变成可执行的生产流程。</p>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Project 03: overseas social media · AI video generation</span><span class="slide-number" data-current="18" data-total="26"></span></div>
+    <aside class="notes">
+      <p>第三个项目是海外社媒渠道建设。这个项目和前两个项目的不同点在于，它从图文内容扩展到了视频内容，也从搜索和页面优化扩展到了品牌社媒运营。</p>
+      <p>目标是让企业在 TikTok、YouTube、Facebook、Instagram、LinkedIn 等海外社媒平台拥有自己的品牌账号，并且能够每月定时发布 4 条全平台产品宣传视频。</p>
+      <p>我在这个项目里做的不是单次生成视频，而是先理解海外市场和产品短视频逻辑，再制定 AI 视频产出标准，打磨提示词，最后通过 n8n、飞书和 Sora2 把流程跑起来，实现日产 20 条视频。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="AI video demo samples">
+    <p class="kicker">19 / 视频样片演示</p>
+    <h2 class="h2">现场可以直接播放 AI 生成的视频样片，展示真实产出质感</h2>
+    <div class="video-demo-layout">
+      <div class="video-stage">
+        <video id="demo-video" controls preload="metadata" playsinline src="AI视频展示/产品展示3.mp4"></video>
+        <div class="video-caption">
+          <span id="demo-video-title">产品展示3 · 产品展示型</span>
+          <span>本地 MP4 样片，可在汇报现场直接播放</span>
+        </div>
+      </div>
+      <div class="signal-panel">
+        <p class="kicker">Samples</p>
+        <h3>6 条样片覆盖不同视频类型</h3>
+        <div class="sample-grid mt-m">
+          <button class="sample-button is-active" type="button" data-video="AI视频展示/产品展示3.mp4" data-title="产品展示3 · 产品展示型"><b>产品展示3</b><span>展示产品外观、功能细节和核心卖点。</span></button>
+          <button class="sample-button" type="button" data-video="AI视频展示/产品展示4.mp4" data-title="产品展示4 · 产品展示型"><b>产品展示4</b><span>同一产品方向的不同视觉表达。</span></button>
+          <button class="sample-button" type="button" data-video="AI视频展示/产品展示6.mp4" data-title="产品展示6 · 产品展示型"><b>产品展示6</b><span>用于对比提示词迭代后的镜头效果。</span></button>
+          <button class="sample-button" type="button" data-video="AI视频展示/数字人介绍5.mp4" data-title="数字人介绍5 · 讲解型"><b>数字人介绍5</b><span>适合品牌介绍、产品说明和口播场景。</span></button>
+          <button class="sample-button" type="button" data-video="AI视频展示/转场视频1.mp4" data-title="转场视频1 · 转场型"><b>转场视频1</b><span>用于社媒短视频节奏和画面衔接。</span></button>
+          <button class="sample-button" type="button" data-video="AI视频展示/转场视频2.mp4" data-title="转场视频2 · 转场型"><b>转场视频2</b><span>用于补充多平台视频素材变化。</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Live demo: product showcase · digital human · transition samples</span><span class="slide-number" data-current="19" data-total="26"></span></div>
+    <aside class="notes">
+      <p>这一页可以作为现场演示页。这里嵌入了本地 AI 视频样片，汇报时可以直接点击播放，不需要再切换到文件夹或外部播放器。</p>
+      <p>右侧列出了 6 条样片，包含产品展示、数字人介绍和转场视频几类。点击不同按钮，左侧播放器会切换到对应视频。</p>
+      <p>这一页的作用是让听众看到真实产出，而不是只听流程描述。演示时可以先播放一条产品展示视频，再切到数字人介绍或转场视频，说明不同提示词类型对应不同视频用途。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Overseas social media channel matrix">
+    <p class="kicker">20 / 渠道矩阵</p>
+    <h2 class="h2">不同平台不是简单同步内容，而是共同构成品牌海外触点</h2>
+    <div class="platform-grid anim-stagger-list" data-anim-target>
+      <div class="platform-card"><div class="platform-icon">TT</div><h3>TikTok</h3><p class="dim">强调短节奏、强视觉、快速产品卖点表达，适合冷启动曝光。</p></div>
+      <div class="platform-card"><div class="platform-icon">YT</div><h3>YouTube</h3><p class="dim">承接产品介绍、功能说明和更长生命周期的视频资产。</p></div>
+      <div class="platform-card"><div class="platform-icon">FB</div><h3>Facebook</h3><p class="dim">覆盖社群、主页和广告素材复用，提升品牌基础可信度。</p></div>
+      <div class="platform-card"><div class="platform-icon">IG</div><h3>Instagram</h3><p class="dim">强调画面质感、产品视觉和品牌调性，适合 Reels 分发。</p></div>
+      <div class="platform-card"><div class="platform-icon">IN</div><h3>LinkedIn</h3><p class="dim">面向企业客户和专业受众，强化公司形象与产品可信度。</p></div>
+    </div>
+    <div class="quality-bottom">
+      <div class="callout">渠道建设的重点不是“发出去”，而是让品牌形成持续、统一、可复用的海外内容资产。</div>
+      <p class="lede">同一批视频素材可以根据平台调性调整标题、封面、说明和发布时间。</p>
+    </div>
+    <div class="deck-footer"><span>Channel matrix: TikTok · YouTube · Facebook · Instagram · LinkedIn</span><span class="slide-number" data-current="20" data-total="26"></span></div>
+    <aside class="notes">
+      <p>这一页讲渠道矩阵。海外社媒不是把一个视频复制粘贴到所有平台，而是要理解每个平台承担的角色。</p>
+      <p>TikTok 更偏曝光和短节奏表达，YouTube 更适合承接更长生命周期的视频资产，Facebook 可以补充主页和社群可信度，Instagram 强调视觉调性，LinkedIn 则面向更专业和企业客户的受众。</p>
+      <p>所以我在设计这个项目时，不只是生成视频，还要考虑这些视频如何成为品牌在海外市场的持续触点。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="AI video output standards and prompt library">
+    <p class="kicker">21 / 视频标准与提示词库</p>
+    <h2 class="h2">我先定义 AI 视频产出标准，再把短视频逻辑转成多类型提示词</h2>
+    <div class="prompt-library compact">
+      <div class="signal-panel">
+        <p class="kicker">Output standard</p>
+        <h3>AI 视频不是“能生成就行”，而是要符合产品宣传逻辑</h3>
+        <div class="standard-list">
+          <div class="standard-item"><b>开头抓注意</b><span class="dim">前几秒明确产品或场景。</span></div>
+          <div class="standard-item"><b>卖点清晰</b><span class="dim">产品优势和核心价值能被看懂。</span></div>
+          <div class="standard-item"><b>画面可用</b><span class="dim">镜头、风格、比例适合社媒发布。</span></div>
+          <div class="standard-item"><b>品牌一致</b><span class="dim">不同视频能沉淀统一品牌资产。</span></div>
+        </div>
+      </div>
+      <div class="prompt-stack two-col">
+        <div class="prompt-chip"><b>产品展示型</b><span class="dim">突出产品外观、功能细节和核心卖点。</span></div>
+        <div class="prompt-chip"><b>使用场景型</b><span class="dim">把产品放入真实海外用户场景，提升理解速度。</span></div>
+        <div class="prompt-chip"><b>痛点解决型</b><span class="dim">先呈现问题，再展示产品如何解决。</span></div>
+        <div class="prompt-chip"><b>品牌形象型</b><span class="dim">强调企业专业感、可信度和长期品牌露出。</span></div>
+        <div class="prompt-chip"><b>平台适配型</b><span class="dim">针对短视频、横版视频和企业平台语境调整表达。</span></div>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Video standard: hook · value · usable visuals · brand consistency</span><span class="slide-number" data-current="21" data-total="26"></span></div>
+    <aside class="notes">
+      <p>视频项目里，我先做的是理解海外市场和产品短视频逻辑，然后设定 AI 视频产出标准。</p>
+      <p>AI 视频不能只是“生成了一个视频”，而是要符合产品宣传逻辑：开头要抓注意，卖点要清楚，画面要能用于社媒发布，不同视频之间还要有品牌一致性。</p>
+      <p>在这个基础上，我打磨了多类型视频提示词，比如产品展示型、使用场景型、痛点解决型、品牌形象型和平台适配型。这样后续不是每次从零写提示词，而是根据视频目标选择对应模板。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="n8n Feishu Sora2 video workflow">
+    <p class="kicker">22 / 视频生成工作流</p>
+    <h2 class="h2">n8n 连接飞书并调用 Sora2，把视频生成变成可追踪流程</h2>
+    <div class="architecture">
+      <div class="arch-flow">
+        <div class="arch-node"><p class="kicker">01</p><strong>飞书生产表</strong><p class="dim">用飞书多维表承接视频任务、产品信息、提示词类型和生产状态。</p></div>
+        <div class="arch-node"><p class="kicker">02</p><strong>n8n 读取</strong><p class="dim">工作流按规则读取待生产任务，减少人工逐条复制。</p></div>
+        <div class="arch-node"><p class="kicker">03</p><strong>提示词组装</strong><p class="dim">根据产品信息、视频类型和平台目标拼接成 Sora2 可用提示词。</p></div>
+        <div class="arch-node"><p class="kicker">04</p><strong>Sora2 生成</strong><p class="dim">调用视频生成能力产出产品宣传视频。</p></div>
+        <div class="arch-node"><p class="kicker">05</p><strong>结果沉淀</strong><p class="dim">生成结果回到飞书表，配合教程和发布规则进入团队使用。</p></div>
+      </div>
+      <div class="resource-grid">
+        <div class="resource-card">
+          <p class="kicker">Guide</p>
+          <h3>视频制作教程与发布规则</h3>
+          <p class="dim">把完整流程打磨成团队可学习、可执行的教学文档。</p>
+          <a href="https://kuihuadao.feishu.cn/docx/QLN1d2K6vomZomxYhIWcmChVn0d" target="_blank">打开飞书教学文档 →</a>
+        </div>
+        <div class="resource-card">
+          <p class="kicker">Table</p>
+          <h3>视频生产飞书表</h3>
+          <p class="dim">用生产表承接任务、状态和生成结果，形成可追踪的视频生产台账。</p>
+          <a href="https://ocnz0mc00vhp.feishu.cn/base/M2O1bNspLabN11s6O39cd1n2nYe?table=tblivEiiRjKZlN2d&view=vewLdXPoCj" target="_blank">打开视频生产表 →</a>
+        </div>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Workflow: Feishu Base · n8n · Sora2 · tutorial · publishing rules</span><span class="slide-number" data-current="22" data-total="26"></span></div>
+    <aside class="notes">
+      <p>这一页讲具体工作流。我用飞书多维表承接视频任务，再通过 n8n 读取任务，组装提示词，并调用 Sora2 进行视频生成。</p>
+      <p>生成之后，结果会回到飞书体系里，方便继续管理和复用。这里还有一个很关键的交付物：我把完整流程打磨成了简单的视频制作教程和发布规则教学文档。</p>
+      <p>这意味着这个项目不是只有我能操作，而是可以交给团队学习和执行。工作流加教程，才是真正能长期运行的系统。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Overseas social media video results">
+    <p class="kicker">23 / 第三项目结果</p>
+    <h2 class="h2">海外社媒视频生产实现日产 20 条，并形成月度发布机制</h2>
+    <div class="before-after">
+      <div class="ba-card">
+        <p class="kicker">Production</p>
+        <span class="big counter" data-to="20">0</span>
+        <h3>条视频 / 日</h3>
+        <p class="dim">通过 AI 视频生成工作流，让产品宣传视频进入稳定产出。</p>
+      </div>
+      <div class="arrow-burst">→</div>
+      <div class="ba-card">
+        <p class="kicker">Publishing</p>
+        <span class="big counter" data-to="4">0</span>
+        <h3>条 / 月 / 全平台</h3>
+        <p class="dim">面向多个海外社媒账号，形成每月定时发布机制。</p>
+      </div>
+    </div>
+    <div class="arch-meta" style="margin-top:22px;">
+      <div><b>品牌账号建立</b><p class="dim">TikTok、YouTube、Facebook、Instagram、LinkedIn 等渠道形成品牌阵地。</p></div>
+      <div><b>视频标准沉淀</b><p class="dim">把海外短视频逻辑、AI 产出标准和提示词类型固化下来。</p></div>
+      <div><b>团队可执行</b><p class="dim">教程、发布规则和生产表让流程不依赖单人记忆。</p></div>
+    </div>
+    <div class="deck-footer"><span>Outcome: 20 videos/day · 4 monthly cross-platform product videos</span><span class="slide-number" data-current="23" data-total="26"></span></div>
+    <aside class="notes">
+      <p>第三个项目的结果是：视频生产能力达到日产 20 条，并且形成了每月定时发布 4 条全平台产品宣传视频的机制。</p>
+      <p>这里的成果不仅是视频数量，还包括海外社媒账号建设、视频产出标准、提示词库、飞书生产表、n8n 工作流，以及视频制作和发布规则教学文档。</p>
+      <p>这个项目让整份年度成果更完整：第一个项目解决 SEO 文章，第二个项目解决产品页面，第三个项目解决海外社媒视频。我的 AI 工作流能力已经从文字扩展到页面，再扩展到视频和渠道运营。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="This project proves my method for building AI workflows">
+    <p class="kicker">24 / 方法论沉淀</p>
+    <h2 class="h2">三个项目共同验证了我的 AI 工作流搭建方法论</h2>
+    <div class="timeline">
+      <div class="time-card"><span class="dot"></span><h4>先拆业务问题</h4><p class="dim">区分文章、产品页、短视频等不同内容场景的真实质量标准。</p></div>
+      <div class="time-card"><span class="dot"></span><h4>再标准化输入输出</h4><p class="dim">把关键词、TKD、产品信息、视频脚本、发布规则转成稳定字段。</p></div>
+      <div class="time-card"><span class="dot"></span><h4>再选择工作流工具</h4><p class="dim">Coze 承载文章链路，n8n 编排产品页和视频跨工具自动化。</p></div>
+      <div class="time-card"><span class="dot"></span><h4>最后规模化运行</h4><p class="dim">把单次生成能力变成团队可用、可追踪、可教学的生产系统。</p></div>
+    </div>
+    <div class="deck-footer"><span>Method: business logic → standardized fields → workflow engine → scalable ops</span><span class="slide-number" data-current="24" data-total="26"></span></div>
+    <aside class="notes">
+      <p>讲完三个项目之后，可以把方法论收束出来。SEO 文章生成、产品页面优化、海外社媒视频生成，看起来是三个不同任务，但背后的搭建方法是一致的。</p>
+      <p>第一步是拆业务问题，弄清楚真正的质量标准；第二步是标准化输入输出，把内容生产变成字段、模板和教程；第三步是根据场景选择工作流工具，Coze 适合文章链路，n8n 适合跨工具编排、状态流转和调用视频生成能力；第四步是规模化运行。</p>
+      <p>所以我今年沉淀的不是某一个工具经验，而是一套可以从图文迁移到视频的 AI 内容生产工作流搭建能力。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Reusable value">
+    <p class="kicker">25 / 可复用价值</p>
+    <h2 class="h2">这套能力已经从文章、页面迁移到视频，还能继续扩展</h2>
+    <div class="roadmap-grid">
+      <div class="roadmap-card">
+        <span class="horizon">Content Ops</span>
+        <h3>运营内容自动化</h3>
+        <p class="dim">把选题、关键词、活动信息转成批量可生成的内容资产。</p>
+        <ul>
+          <li>活动文案</li>
+          <li>小红书/社媒初稿</li>
+          <li>商品介绍与 FAQ</li>
+        </ul>
+      </div>
+      <div class="roadmap-card">
+        <span class="horizon">Support</span>
+        <h3>客服与销售支持</h3>
+        <p class="dim">把标准回答、业务规则和客户问题结合，提升响应一致性。</p>
+        <ul>
+          <li>客服话术生成</li>
+          <li>销售跟进素材</li>
+          <li>常见问题知识库</li>
+        </ul>
+      </div>
+      <div class="roadmap-card">
+        <span class="horizon">Analysis</span>
+        <h3>数据与复盘报告</h3>
+        <p class="dim">把结构化数据、运营结论和汇报格式串成稳定报告链路。</p>
+        <ul>
+          <li>周报/月报初稿</li>
+          <li>渠道效果总结</li>
+          <li>异常归因说明</li>
+        </ul>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Reusable capability: content · support · analysis</span><span class="slide-number" data-current="25" data-total="26"></span></div>
+    <aside class="notes">
+      <p>这一页讲可复用价值。现在这套能力已经从 SEO 文章生成，迁移到了海外独立站产品页面优化，又进一步迁移到了海外社媒视频生产，而且三个项目都产生了明确的产能结果。</p>
+      <p>它真正沉淀下来的是一套可迁移的搭建能力：理解业务、拆输入输出、设计标准化模板和提示词库、选择合适的工作流工具、沉淀结果、建立状态闭环。</p>
+      <p>同样的能力还可以继续迁移到运营内容、客服销售支持、数据复盘报告等场景。只要一个流程有稳定输入、重复产出、明确质量标准，就有被 AI 工作流重构的可能。</p>
+    </aside>
+  </section>
+
+  <section class="slide" data-title="Closing">
+    <div class="closing-grid">
+      <div>
+        <p class="kicker">Conclusion</p>
+        <h2 class="h2">我交付的不是三个单点工具，而是一套可迁移的内容生产工作流能力</h2>
+        <p class="lede">从 Coze 到 n8n，从 SEO 文章、产品页面到海外社媒视频，我证明了自己能按业务场景选择工具，并把内容生产变成可追踪、可放大的系统。</p>
+      </div>
+      <div class="signal-panel">
+        <div class="quote-line">从“会用 AI”到“用 AI 重构内容生产流程”，这是我这一年的核心成果。</div>
+        <ul class="muted-list">
+          <li>理解业务逻辑，而不是只写提示词</li>
+          <li>用标准化模板约束批量内容质量</li>
+          <li>用 Coze / n8n 把单次能力变成团队产能</li>
+          <li>用 Notion / 飞书输入输出表形成可追踪闭环</li>
+        </ul>
+      </div>
+    </div>
+    <div class="deck-footer"><span>Press S for presenter mode · Q&A</span><span class="slide-number" data-current="26" data-total="26"></span></div>
+    <aside class="notes">
+      <p>最后收束一下：这份 PPT 现在不是在展示三个孤立工具，而是在展示一套可以迁移的内容生产工作流能力。</p>
+      <p>第一个项目用 Coze 把 SEO 文章生产从 3 人日产 60 篇提升到 300 篇；第二个项目用 n8n 把产品页面优化从 1 人日产 50 页提升到 100 页；第三个项目用 n8n 连接飞书并调用 Sora2，实现日产 20 条海外社媒视频。三个项目的共同点，是我都先拆业务标准，再做输入输出标准化，再选择合适工具搭建闭环。</p>
+      <p>所以这一年的核心成果不是“我会用某个 AI 工具”，而是我能用 AI 工作流重构真实业务流程，把内容生产变成可追踪、可复盘、可放大的系统。</p>
+    </aside>
+  </section>
+</div>
+
+<script src="../../.codex/skills/html-ppt/assets/runtime.js"></script>
+<script src="../../.codex/skills/html-ppt/assets/animations/fx-runtime.js"></script>
+<script>
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest(".sample-button");
+    if (!button) return;
+
+    const video = document.getElementById("demo-video");
+    const title = document.getElementById("demo-video-title");
+    if (!video) return;
+
+    document.querySelectorAll(".sample-button").forEach((item) => item.classList.remove("is-active"));
+    button.classList.add("is-active");
+    video.src = button.dataset.video;
+    video.load();
+    if (title) title.textContent = button.dataset.title || button.textContent.trim();
+  });
+</script>
+</body>
+</html>
+
+
+
