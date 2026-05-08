@@ -1,0 +1,31 @@
+:root[data-typography-pack="mono-technical"] {
+  --font-sans: 'JetBrains Mono', 'IBM Plex Mono', 'Noto Sans SC', monospace;
+  --font-display: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+  --letter-tight: 0;
+  --letter-normal: 0;
+  --random-h1-size: 66px;
+  --random-h2-size: 50px;
+  --random-lede-size: 20px;
+  --random-copy-leading: 1.56;
+}
+
+:root[data-typography-pack="mono-technical"] .h1,
+:root[data-typography-pack="mono-technical"] h1.title {
+  font-family: var(--font-display);
+  font-size: var(--random-h1-size);
+  line-height: 1.04;
+}
+
+:root[data-typography-pack="mono-technical"] .h2,
+:root[data-typography-pack="mono-technical"] h2.title {
+  font-family: var(--font-display);
+  font-size: var(--random-h2-size);
+  line-height: 1.08;
+}
+
+:root[data-typography-pack="mono-technical"] .lede,
+:root[data-typography-pack="mono-technical"] p,
+:root[data-typography-pack="mono-technical"] li {
+  line-height: calc(var(--random-copy-leading) * 1em);
+}

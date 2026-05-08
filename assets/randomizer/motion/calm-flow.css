@@ -1,0 +1,10 @@
+:root[data-motion-pack="calm-flow"] {
+  --anim-dur: .72s;
+  --anim-ease: cubic-bezier(.25,.1,.25,1);
+  --random-panel-shift: translateY(-2px);
+}
+
+:root[data-motion-pack="calm-flow"] .card-hover:hover,
+:root[data-motion-pack="calm-flow"] .sample-button:hover {
+  transform: var(--random-panel-shift);
+}

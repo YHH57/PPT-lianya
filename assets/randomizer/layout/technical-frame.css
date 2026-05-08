@@ -1,0 +1,43 @@
+:root[data-layout-pack="technical-frame"] [data-layout-family="hero"][data-layout-variant="hero-frame"] .hero-grid,
+:root[data-layout-pack="technical-frame"] [data-layout-family="hero"][data-layout-variant="hero-gridline"] .hero-grid,
+:root[data-layout-pack="technical-frame"] [data-layout-family="process-flow"][data-layout-variant="process-flow-panels"] .arch-flow,
+:root[data-layout-pack="technical-frame"] [data-layout-family="process-flow"][data-layout-variant="process-flow-vertical"] .arch-flow,
+:root[data-layout-pack="technical-frame"] [data-layout-family="metric-compare"][data-layout-variant="metric-compare-panels"] .before-after,
+:root[data-layout-pack="technical-frame"] [data-layout-family="metric-compare"][data-layout-variant="metric-compare-matrix"] .before-after,
+:root[data-layout-pack="technical-frame"] [data-layout-family="card-grid"][data-layout-variant="card-grid-indexed"] .quality-grid,
+:root[data-layout-pack="technical-frame"] [data-layout-family="card-grid"][data-layout-variant="card-grid-stack"] .quality-grid {
+  position: relative;
+}
+
+:root[data-layout-pack="technical-frame"] [data-layout-family="hero"][data-layout-variant="hero-frame"] .signal-panel,
+:root[data-layout-pack="technical-frame"] [data-layout-family="process-flow"][data-layout-variant="process-flow-panels"] .arch-node,
+:root[data-layout-pack="technical-frame"] [data-layout-family="card-grid"][data-layout-variant="card-grid-indexed"] .quality-card,
+:root[data-layout-pack="technical-frame"] [data-layout-family="card-grid"][data-layout-variant="card-grid-stack"] .template-card,
+:root[data-layout-pack="technical-frame"] [data-layout-family="metric-compare"][data-layout-variant="metric-compare-panels"] .ba-card {
+  border-radius: 12px;
+}
+
+:root[data-layout-pack="technical-frame"] [data-layout-family="hero"][data-layout-variant="hero-gridline"] .metric-hero {
+  gap: 10px;
+}
+
+:root[data-layout-pack="technical-frame"] [data-layout-family="card-grid"][data-layout-variant="card-grid-indexed"] .quality-grid > :first-child,
+:root[data-layout-pack="technical-frame"] [data-layout-family="card-grid"][data-layout-variant="card-grid-stack"] .template-grid > :first-child {
+  outline: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+:root[data-layout-pack="technical-frame"] [data-layout-family="process-flow"][data-layout-variant="process-flow-vertical"] .arch-flow {
+  grid-template-columns: 1fr;
+}
+
+:root[data-layout-pack="technical-frame"] [data-layout-family="metric-compare"][data-layout-variant="metric-compare-panels"] .before-after {
+  grid-template-columns: 1fr 64px 1fr;
+}
+
+:root[data-layout-pack="technical-frame"] [data-layout-family="metric-compare"][data-layout-variant="metric-compare-matrix"] .before-after {
+  grid-template-columns: 1fr;
+}
+
+:root[data-layout-pack="technical-frame"] [data-layout-family="metric-compare"][data-layout-variant="metric-compare-matrix"] .ba-card {
+  min-height: 220px;
+}

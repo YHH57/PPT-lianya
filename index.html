@@ -14,12 +14,23 @@
     --deck-blue: #6aa7ff;
     --deck-pink: #ff4fd8;
     --deck-yellow: #ffd166;
+    --deck-ink-strong: color-mix(in srgb, var(--bg) 18%, black);
+    --deck-overlay-blue: color-mix(in srgb, var(--accent) 24%, transparent);
+    --deck-overlay-pink: color-mix(in srgb, var(--accent-3) 20%, transparent);
+    --deck-overlay-green: color-mix(in srgb, var(--good) 18%, transparent);
+    --deck-overlay-yellow: color-mix(in srgb, var(--warn) 18%, transparent);
+    --deck-shell: color-mix(in srgb, var(--bg) 68%, black);
+    --deck-panel-sheen: var(--random-panel-sheen, linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.025)));
+    --deck-page-overlay:
+      var(--random-page-overlay,
+      radial-gradient(circle at 18% 12%, var(--deck-overlay-blue), transparent 32%),
+      radial-gradient(circle at 78% 18%, var(--deck-overlay-pink), transparent 30%),
+      radial-gradient(circle at 58% 86%, var(--deck-overlay-green), transparent 36%));
+    --deck-grid-line: color-mix(in srgb, var(--text-1) calc(var(--random-grid-opacity, .045) * 100%), transparent);
   }
   body {
     background:
-      radial-gradient(circle at 18% 12%, rgba(106, 167, 255, .18), transparent 32%),
-      radial-gradient(circle at 78% 18%, rgba(255, 79, 216, .13), transparent 30%),
-      radial-gradient(circle at 58% 86%, rgba(46, 229, 157, .12), transparent 36%),
+      var(--deck-page-overlay),
       var(--bg);
   }
   .slide {
@@ -32,8 +43,8 @@
     pointer-events: none;
     z-index: 0;
     background-image:
-      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      linear-gradient(var(--deck-grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--deck-grid-line) 1px, transparent 1px);
     background-size: 48px 48px;
     mask-image: radial-gradient(circle at center, black, transparent 78%);
   }
@@ -67,8 +78,8 @@
     border-radius: 28px;
     padding: 28px;
     background:
-      linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.025)),
-      radial-gradient(circle at 30% 0%, rgba(106,167,255,.22), transparent 52%);
+      var(--deck-panel-sheen),
+      radial-gradient(circle at 30% 0%, var(--deck-overlay-blue), transparent 52%);
     box-shadow: 0 28px 90px rgba(0,0,0,.35);
   }
   .metric-hero {
@@ -105,7 +116,7 @@
     display: grid;
     place-items: center;
     font-size: 34px;
-    color: #06151e;
+    color: var(--deck-ink-strong);
     background: linear-gradient(135deg, var(--deck-green), var(--deck-blue));
     box-shadow: 0 0 34px rgba(46, 229, 157, .45);
   }
@@ -151,7 +162,7 @@
     border: 1px solid color-mix(in srgb, var(--accent) 36%, transparent);
     border-radius: 24px;
     padding: 24px;
-    background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+    background: var(--deck-panel-sheen);
   }
   .logic-arrow {
     font-size: 42px;
@@ -188,8 +199,8 @@
     padding: 28px;
     border: 1px solid color-mix(in srgb, var(--deck-green) 42%, transparent);
     background:
-      radial-gradient(circle at center, rgba(46,229,157,.22), transparent 48%),
-      linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.025));
+      radial-gradient(circle at center, var(--deck-overlay-green), transparent 48%),
+      var(--deck-panel-sheen);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -286,7 +297,7 @@
     border-radius: 26px;
     padding: 30px;
     background:
-      radial-gradient(circle at 18% 8%, rgba(255,79,216,.18), transparent 48%),
+      radial-gradient(circle at 18% 8%, var(--deck-overlay-pink), transparent 48%),
       color-mix(in srgb, var(--surface) 86%, transparent);
     min-height: 390px;
     display: flex;
@@ -337,7 +348,7 @@
     justify-content: center;
     margin-bottom: 14px;
     font-family: var(--font-mono);
-    color: #06151e;
+    color: var(--deck-ink-strong);
     background: var(--deck-green);
   }
   .quality-bottom {
@@ -426,7 +437,7 @@
     border: 1px solid color-mix(in srgb, var(--deck-green) 30%, transparent);
     border-radius: 18px;
     padding: 18px;
-    background: linear-gradient(180deg, rgba(46,229,157,.09), rgba(255,255,255,.02));
+    background: linear-gradient(180deg, color-mix(in srgb, var(--deck-green) 14%, transparent), rgba(255,255,255,.02));
   }
   .qa-layout {
     display: grid;
@@ -459,7 +470,7 @@
     border-radius: 24px;
     padding: 24px;
     background:
-      radial-gradient(circle at 90% 0%, rgba(255,209,102,.16), transparent 46%),
+      radial-gradient(circle at 90% 0%, var(--deck-overlay-yellow), transparent 46%),
       color-mix(in srgb, var(--surface) 86%, transparent);
   }
   .ops-grid {
@@ -520,13 +531,13 @@
     padding: 28px;
     min-height: 430px;
     background:
-      radial-gradient(circle at 20% 0%, rgba(106,167,255,.18), transparent 46%),
+      radial-gradient(circle at 20% 0%, var(--deck-overlay-blue), transparent 46%),
       color-mix(in srgb, var(--surface) 86%, transparent);
   }
   .case-panel.accent {
     border-color: color-mix(in srgb, var(--deck-green) 42%, transparent);
     background:
-      radial-gradient(circle at 85% 0%, rgba(46,229,157,.2), transparent 46%),
+      radial-gradient(circle at 85% 0%, var(--deck-overlay-green), transparent 46%),
       color-mix(in srgb, var(--surface) 86%, transparent);
   }
   .case-panel .tool-word {
@@ -593,7 +604,7 @@
     justify-content: center;
     margin-bottom: 14px;
     font-family: var(--font-mono);
-    color: #06151e;
+    color: var(--deck-ink-strong);
     background: var(--deck-blue);
   }
   .platform-grid {
@@ -618,7 +629,7 @@
     margin-bottom: 18px;
     font-family: var(--font-mono);
     font-weight: 900;
-    color: #06151e;
+    color: var(--deck-ink-strong);
     background: linear-gradient(135deg, var(--deck-pink), var(--deck-blue));
   }
   .video-standard-grid {
@@ -695,7 +706,7 @@
     padding: 24px;
     min-height: 260px;
     background:
-      radial-gradient(circle at 90% 0%, rgba(46,229,157,.14), transparent 46%),
+      radial-gradient(circle at 90% 0%, var(--deck-overlay-green), transparent 46%),
       color-mix(in srgb, var(--surface) 86%, transparent);
   }
   .resource-card a {
@@ -716,7 +727,7 @@
     border-radius: 26px;
     padding: 16px;
     background:
-      radial-gradient(circle at 85% 0%, rgba(46,229,157,.16), transparent 44%),
+      radial-gradient(circle at 85% 0%, var(--deck-overlay-green), transparent 44%),
       color-mix(in srgb, var(--surface) 88%, transparent);
     min-height: 470px;
   }
@@ -725,7 +736,7 @@
     aspect-ratio: 16 / 9;
     display: block;
     border-radius: 18px;
-    background: #050812;
+    background: var(--deck-shell);
     border: 1px solid var(--border);
     object-fit: contain;
   }
@@ -794,13 +805,47 @@
     margin-right: 10px;
   }
   .notes, aside.notes { display: none !important; }
+  .style-randomizer-button {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--surface) 18%, transparent);
+    color: color-mix(in srgb, var(--text-1) 28%, transparent);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    opacity: .18;
+    transition: opacity .18s ease, transform .18s ease, background .18s ease, color .18s ease;
+    z-index: 9;
+  }
+  .slide:hover .style-randomizer-button,
+  .style-randomizer-button:focus-visible {
+    opacity: .95;
+    transform: scale(1.04);
+    background: color-mix(in srgb, var(--surface) 86%, transparent);
+    color: var(--accent);
+    outline: 0;
+  }
+  .style-randomizer-glyph {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 700;
+  }
+  html[data-preview="1"] .style-randomizer-button {
+    display: none !important;
+  }
 </style>
 </head>
 <body data-theme-base="assets/themes/">
 <div class="deck">
   <div class="deck-mark">AI Workflow Builder · Year Review</div>
 
-  <section class="slide" data-title="Cover">
+  <section class="slide" data-title="Cover" data-layout-family="hero">
     <div class="hero-grid">
       <div>
         <p class="kicker">成果展示 / AI 内容生产工作流</p>
@@ -863,7 +908,7 @@
     </aside>
   </section>
 
-  <section class="slide" data-title="I did not automate before understanding the business">
+  <section class="slide" data-title="I did not automate before understanding the business" data-layout-family="card-grid">
     <p class="kicker">02 / 业务理解先行</p>
     <h2 class="h2">我没有急着自动化，而是先把原业务流程跑通了一遍</h2>
     <div class="phase-grid anim-stagger-list" data-anim-target>
@@ -881,7 +926,7 @@
     </aside>
   </section>
 
-  <section class="slide" data-title="Define the quality bar before designing prompts">
+  <section class="slide" data-title="Define the quality bar before designing prompts" data-layout-family="card-grid">
     <p class="kicker">03 / 质量标准拆解</p>
     <h2 class="h2">我先把“合格文章”拆成模型能执行、优化师能验收的标准</h2>
     <div class="quality-grid anim-stagger-list" data-anim-target>
@@ -904,7 +949,7 @@
     </aside>
   </section>
 
-  <section class="slide" data-title="The first breakthrough was prompt engineering, not workflow tooling">
+  <section class="slide" data-title="The first breakthrough was prompt engineering, not workflow tooling" data-layout-family="process-flow">
     <p class="kicker">04 / 提示词工程打底</p>
     <h2 class="h2">第一个突破不是工具选型，而是让 GPT 稳定写出合格文章</h2>
     <div class="logic-map">
@@ -965,7 +1010,7 @@
     </aside>
   </section>
 
-  <section class="slide" data-title="Coze became the low-cost workflow engine that connected every step">
+  <section class="slide" data-title="Coze became the low-cost workflow engine that connected every step" data-layout-family="process-flow">
     <p class="kicker">06 / 工作流落地</p>
     <h2 class="h2">Coze 成为低成本、可接入 GPT 的全流程工作流引擎</h2>
     <div class="workflow">
@@ -1049,7 +1094,7 @@
     </aside>
   </section>
 
-  <section class="slide" data-title="The system already delivered a fivefold capacity jump at zero AI tool cost">
+  <section class="slide" data-title="The system already delivered a fivefold capacity jump at zero AI tool cost" data-layout-family="metric-compare">
     <p class="kicker">09 / 结果</p>
     <h2 class="h2">系统已经实现 5 倍产能跃迁，AI 工具成本为 0</h2>
     <div class="kpi-strip">
@@ -1106,7 +1151,7 @@
     </aside>
   </section>
 
-  <section class="slide" data-title="Operating model">
+  <section class="slide" data-title="Operating model" data-layout-family="card-grid">
     <p class="kicker">11 / 运行机制</p>
     <h2 class="h2">上线后，团队从“写文章”切换成“管理一条内容生产线”</h2>
     <div class="ops-grid anim-stagger-list" data-anim-target>
@@ -1157,7 +1202,7 @@
     </aside>
   </section>
 
-  <section class="slide" data-title="Product page workflow architecture">
+  <section class="slide" data-title="Product page workflow architecture" data-layout-family="process-flow">
     <p class="kicker">13 / n8n 工作流架构</p>
     <h2 class="h2">n8n 负责把 Notion 任务、大模型生成和状态回写串成闭环</h2>
     <div class="architecture">
@@ -1182,7 +1227,7 @@
     </aside>
   </section>
 
-  <section class="slide" data-title="Product page template standardization">
+  <section class="slide" data-title="Product page template standardization" data-layout-family="card-grid">
     <p class="kicker">14 / 页面模板标准化</p>
     <h2 class="h2">标准化模板让产品页优化从经验操作变成可复制生产</h2>
     <div class="template-grid anim-stagger-list" data-anim-target>
@@ -1236,7 +1281,7 @@
     </aside>
   </section>
 
-  <section class="slide" data-title="Product page optimization results">
+  <section class="slide" data-title="Product page optimization results" data-layout-family="metric-compare">
     <p class="kicker">16 / 第二项目结果</p>
     <h2 class="h2">产品页面优化效率提升 100%，单人日产从 50 页提升到 100 页</h2>
     <div class="before-after">
@@ -1328,7 +1373,7 @@
     </aside>
   </section>
 
-  <section class="slide" data-title="Overseas social media channel matrix">
+  <section class="slide" data-title="Overseas social media channel matrix" data-layout-family="card-grid">
     <p class="kicker">20 / 渠道矩阵</p>
     <h2 class="h2">不同平台不是简单同步内容，而是共同构成品牌海外触点</h2>
     <div class="platform-grid anim-stagger-list" data-anim-target>
@@ -1380,7 +1425,7 @@
     </aside>
   </section>
 
-  <section class="slide" data-title="n8n Feishu Sora2 video workflow">
+  <section class="slide" data-title="n8n Feishu Sora2 video workflow" data-layout-family="process-flow">
     <p class="kicker">22 / 视频生成工作流</p>
     <h2 class="h2">n8n 连接飞书并调用 Sora2，把视频生成变成可追踪流程</h2>
     <div class="architecture">
@@ -1414,7 +1459,7 @@
     </aside>
   </section>
 
-  <section class="slide" data-title="Overseas social media video results">
+  <section class="slide" data-title="Overseas social media video results" data-layout-family="metric-compare">
     <p class="kicker">23 / 第三项目结果</p>
     <h2 class="h2">海外社媒视频生产实现日产 20 条，并形成月度发布机制</h2>
     <div class="before-after">
@@ -1533,6 +1578,8 @@
 
 <script src="assets/runtime.js"></script>
 <script src="assets/animations/fx-runtime.js"></script>
+<script src="assets/randomizer/packs.js"></script>
+<script src="assets/randomizer/runtime.js"></script>
 <script>
   document.addEventListener("click", (event) => {
     const button = event.target.closest(".sample-button");
@@ -1551,6 +1598,3 @@
 </script>
 </body>
 </html>
-
-
-

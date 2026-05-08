@@ -1,0 +1,45 @@
+:root[data-layout-pack="structured-balance"] [data-layout-family="hero"][data-layout-variant="hero-balanced"] .hero-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+:root[data-layout-pack="structured-balance"] [data-layout-family="hero"][data-layout-variant="hero-emphasis"] .metric-hero {
+  grid-template-columns: 1.2fr auto 1.2fr;
+}
+
+:root[data-layout-pack="structured-balance"] [data-layout-family="card-grid"][data-layout-variant="card-grid-balanced"] .quality-grid,
+:root[data-layout-pack="structured-balance"] [data-layout-family="card-grid"][data-layout-variant="card-grid-balanced"] .template-grid,
+:root[data-layout-pack="structured-balance"] [data-layout-family="card-grid"][data-layout-variant="card-grid-balanced"] .platform-grid,
+:root[data-layout-pack="structured-balance"] [data-layout-family="card-grid"][data-layout-variant="card-grid-balanced"] .ops-grid,
+:root[data-layout-pack="structured-balance"] [data-layout-family="card-grid"][data-layout-variant="card-grid-balanced"] .phase-grid {
+  gap: 18px;
+}
+
+:root[data-layout-pack="structured-balance"] [data-layout-family="card-grid"][data-layout-variant="card-grid-featured"] .quality-grid > :first-child,
+:root[data-layout-pack="structured-balance"] [data-layout-family="card-grid"][data-layout-variant="card-grid-featured"] .template-grid > :first-child,
+:root[data-layout-pack="structured-balance"] [data-layout-family="card-grid"][data-layout-variant="card-grid-featured"] .platform-grid > :first-child {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+:root[data-layout-pack="structured-balance"] [data-layout-family="process-flow"][data-layout-variant="process-flow-stepped"] .arch-flow,
+:root[data-layout-pack="structured-balance"] [data-layout-family="process-flow"][data-layout-variant="process-flow-stepped"] .logic-map {
+  align-items: end;
+}
+
+:root[data-layout-pack="structured-balance"] [data-layout-family="process-flow"][data-layout-variant="process-flow-centered"] .center-engine {
+  min-height: 410px;
+}
+
+:root[data-layout-pack="structured-balance"] [data-layout-family="metric-compare"][data-layout-variant="metric-compare-inline"] .before-after {
+  grid-template-columns: 1fr 72px 1fr;
+}
+
+:root[data-layout-pack="structured-balance"] [data-layout-family="metric-compare"][data-layout-variant="metric-compare-stacked"] .before-after {
+  grid-template-columns: 1fr;
+}
+
+:root[data-layout-pack="structured-balance"] [data-layout-family="metric-compare"][data-layout-variant="metric-compare-stacked"] .arrow-burst {
+  margin: 0 auto;
+  transform: rotate(90deg);
+}

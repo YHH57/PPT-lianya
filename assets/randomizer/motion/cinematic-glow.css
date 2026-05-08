@@ -1,0 +1,17 @@
+:root[data-motion-pack="cinematic-glow"] {
+  --anim-dur: .88s;
+  --anim-ease: cubic-bezier(.33,1,.68,1);
+  --random-panel-shift: translateY(-3px);
+}
+
+:root[data-motion-pack="cinematic-glow"] .signal-panel,
+:root[data-motion-pack="cinematic-glow"] .case-panel,
+:root[data-motion-pack="cinematic-glow"] .resource-card {
+  transition: box-shadow .35s var(--anim-ease), transform .35s var(--anim-ease);
+}
+
+:root[data-motion-pack="cinematic-glow"] .signal-panel:hover,
+:root[data-motion-pack="cinematic-glow"] .case-panel:hover,
+:root[data-motion-pack="cinematic-glow"] .resource-card:hover {
+  transform: var(--random-panel-shift);
+}

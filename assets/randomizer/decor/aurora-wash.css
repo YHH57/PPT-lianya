@@ -1,0 +1,8 @@
+:root[data-decor-pack="aurora-wash"] {
+  --random-page-overlay:
+    radial-gradient(circle at 22% 10%, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 26%),
+    radial-gradient(circle at 76% 16%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 24%),
+    radial-gradient(circle at 52% 88%, color-mix(in srgb, var(--accent-3) 14%, transparent), transparent 32%);
+  --random-grid-opacity: .035;
+  --random-panel-sheen: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+}

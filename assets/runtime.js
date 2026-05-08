@@ -37,6 +37,11 @@
     return m ? parseInt(m[1], 10) - 1 : -1;
   }
 
+  function parseStyleStatePayload(data) {
+    if (!data || !data.styleState) return null;
+    return data.styleState;
+  }
+
   ready(function () {
     const deck = document.querySelector('.deck');
     if (!deck) return;
@@ -82,7 +87,8 @@
 
       /* Listen for postMessage from parent presenter window:
        *  - preview-goto: switch visible slide WITHOUT reloading
-       *  - preview-theme: switch theme CSS link to match audience window */
+       *  - preview-theme: switch theme CSS link to match audience window
+       *  - preview-style-state: apply full style state */
       window.addEventListener('message', function(e) {
         if (!e.data) return;
         if (e.data.type === 'preview-goto') {
@@ -98,6 +104,22 @@
           }
           link.href = previewThemeBase + e.data.name + '.css';
           document.documentElement.setAttribute('data-theme', e.data.name);
+        } else if (e.data.type === 'preview-style-state') {
+          const styleState = parseStyleStatePayload(e.data);
+          if (!styleState) return;
+          if (typeof window.__deckSetStyleState === 'function') {
+            window.__deckSetStyleState(styleState, { skipReplay: true });
+          } else if (styleState.themeId) {
+            let link = document.getElementById('theme-link');
+            if (!link) {
+              link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.id = 'theme-link';
+              document.head.appendChild(link);
+            }
+            link.href = previewThemeBase + styleState.themeId + '.css';
+            document.documentElement.setAttribute('data-theme', styleState.themeId);
+          }
         }
       });
       /* Signal to parent that preview iframe is ready */
@@ -268,6 +290,14 @@
       }
     }
 
+    /* ===== style-state bridge for randomizer runtime ===== */
+    window.__deckApplyTheme = applyTheme;
+    window.__deckBroadcastStyleState = function(styleState) {
+      if (bc && styleState) {
+        bc.postMessage({ type: 'style-state', styleState: styleState });
+      }
+    };
+
     /* ===== listen for remote navigation / theme changes ===== */
     if (bc) {
       bc.onmessage = function(e) {
@@ -279,6 +309,14 @@
           const i = themes.indexOf(e.data.name);
           if (i >= 0) themeIdx = i;
           applyTheme(e.data.name);
+        } else if (e.data.type === 'style-state') {
+          const styleState = parseStyleStatePayload(e.data);
+          if (!styleState) return;
+          if (typeof window.__deckSetStyleState === 'function') {
+            window.__deckSetStyleState(styleState);
+          } else if (styleState.themeId) {
+            applyTheme(styleState.themeId);
+          }
         }
       };
     }
@@ -332,7 +370,8 @@
 
       /* Capture current theme so presenter previews match the audience */
       const currentTheme = root.getAttribute('data-theme') || (themes[themeIdx] || '');
-      const presenterHTML = buildPresenterHTML(deckUrl, slideMeta, total, idx, CHANNEL_NAME, currentTheme);
+      const currentStyleState = window.__deckStyleState || null;
+      const presenterHTML = buildPresenterHTML(deckUrl, slideMeta, total, idx, CHANNEL_NAME, currentTheme, currentStyleState);
 
       presenterWin = window.open('', 'html-ppt-presenter', 'width=1280,height=820,menubar=no,toolbar=no');
       if (!presenterWin) {
@@ -344,11 +383,12 @@
       presenterWin.document.close();
     }
 
-    function buildPresenterHTML(deckUrl, slideMeta, total, startIdx, channelName, currentTheme) {
+    function buildPresenterHTML(deckUrl, slideMeta, total, startIdx, channelName, currentTheme, currentStyleState) {
       const metaJSON = JSON.stringify(slideMeta);
       const deckUrlJSON = JSON.stringify(deckUrl);
       const channelJSON = JSON.stringify(channelName);
       const themeJSON = JSON.stringify(currentTheme || '');
+      const styleStateJSON = JSON.stringify(currentStyleState || null);
       const storageKey = 'html-ppt-presenter:' + location.pathname;
 
       // Build the document as a single template string for clarity
@@ -729,6 +769,7 @@
    */
   var iframeReady = { cur: false, nxt: false };
   var currentTheme = ${themeJSON};
+  var currentStyleState = ${styleStateJSON};
   window.addEventListener('message', function(e) {
     if (!e.data || e.data.type !== 'preview-ready') return;
     var iframe = null;
@@ -744,6 +785,9 @@
     /* Sync current theme to the iframe */
     if (iframe && currentTheme) {
       try { iframe.contentWindow.postMessage({ type: 'preview-theme', name: currentTheme }, '*'); } catch(err) {}
+    }
+    if (iframe && currentStyleState) {
+      try { iframe.contentWindow.postMessage({ type: 'preview-style-state', styleState: currentStyleState }, '*'); } catch(err) {}
     }
     if (iframe) rescaleIframe(iframe);
   });
@@ -816,6 +860,14 @@
             iframe.contentWindow.postMessage({ type: 'preview-theme', name: e.data.name }, '*');
           } catch(err) {}
         });
+      } else if (e.data.type === 'style-state' && e.data.styleState) {
+        currentStyleState = e.data.styleState;
+        if (currentStyleState.themeId) currentTheme = currentStyleState.themeId;
+        [iframeCur, iframeNxt].forEach(function(iframe){
+          try {
+            iframe.contentWindow.postMessage({ type: 'preview-style-state', styleState: currentStyleState }, '*');
+          } catch(err) {}
+        });
       }
     };
   }
@@ -858,8 +910,9 @@
    * (smooth, no reload, no flicker).
    */
   applyLayout(readLayout());
-  iframeCur.src = deckUrl + '?preview=' + (idx + 1);
-  if (idx + 1 < total) iframeNxt.src = deckUrl + '?preview=' + (idx + 2);
+  var previewSeedPart = currentStyleState && currentStyleState.seed ? ('&styleSeed=' + encodeURIComponent(currentStyleState.seed)) : '';
+  iframeCur.src = deckUrl + '?preview=' + (idx + 1) + previewSeedPart;
+  if (idx + 1 < total) iframeNxt.src = deckUrl + '?preview=' + (idx + 2) + previewSeedPart;
   /* Initialize notes/timer/count without touching iframes */
   notesBody.innerHTML = slideMeta[idx].notes || '<span class="empty">（这一页还没有逐字稿）</span>';
   curMeta.textContent = (idx + 1) + '/' + total;
@@ -913,6 +966,9 @@
       themeIdx = (themeIdx+1) % themes.length;
       const name = themes[themeIdx];
       applyTheme(name);
+      if (window.__deckStyleState) {
+        window.__deckStyleState.themeId = name;
+      }
       /* Broadcast to other window (audience ↔ presenter) */
       if (!fromRemote && bc) bc.postMessage({ type: 'theme', name: name });
     }

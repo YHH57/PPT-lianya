@@ -1,0 +1,8 @@
+:root[data-decor-pack="mesh-glow"] {
+  --random-page-overlay:
+    radial-gradient(circle at 16% 10%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 28%),
+    radial-gradient(circle at 82% 14%, color-mix(in srgb, var(--accent-3) 18%, transparent), transparent 26%),
+    radial-gradient(circle at 56% 84%, color-mix(in srgb, var(--good) 16%, transparent), transparent 34%);
+  --random-grid-opacity: .055;
+  --random-panel-sheen: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
+}

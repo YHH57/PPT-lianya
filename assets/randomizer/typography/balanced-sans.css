@@ -1,0 +1,26 @@
+:root[data-typography-pack="balanced-sans"] {
+  --font-sans: 'Inter', 'Noto Sans SC', sans-serif;
+  --font-display: 'Inter', 'Noto Sans SC', sans-serif;
+  --font-serif: 'Noto Serif SC', 'Playfair Display', serif;
+  --letter-tight: -0.018em;
+  --letter-normal: 0;
+  --random-h1-size: 70px;
+  --random-h2-size: 52px;
+  --random-lede-size: 22px;
+  --random-copy-leading: 1.62;
+}
+
+:root[data-typography-pack="balanced-sans"] .h1,
+:root[data-typography-pack="balanced-sans"] h1.title {
+  font-size: var(--random-h1-size);
+}
+
+:root[data-typography-pack="balanced-sans"] .h2,
+:root[data-typography-pack="balanced-sans"] h2.title {
+  font-size: var(--random-h2-size);
+}
+
+:root[data-typography-pack="balanced-sans"] .lede {
+  font-size: var(--random-lede-size);
+  line-height: calc(var(--random-copy-leading) * 1em);
+}

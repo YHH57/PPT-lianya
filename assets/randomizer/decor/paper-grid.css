@@ -1,0 +1,7 @@
+:root[data-decor-pack="paper-grid"] {
+  --random-page-overlay:
+    radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 24%),
+    radial-gradient(circle at 88% 78%, color-mix(in srgb, var(--accent-2) 10%, transparent), transparent 26%);
+  --random-grid-opacity: .09;
+  --random-panel-sheen: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+}

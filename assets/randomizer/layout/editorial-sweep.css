@@ -1,0 +1,38 @@
+:root[data-layout-pack="editorial-sweep"] [data-layout-family="hero"][data-layout-variant="hero-wide"] .hero-grid {
+  grid-template-columns: 1.2fr .8fr;
+  gap: 40px;
+}
+
+:root[data-layout-pack="editorial-sweep"] [data-layout-family="hero"][data-layout-variant="hero-metrics-first"] .metric-hero {
+  margin-top: 18px;
+}
+
+:root[data-layout-pack="editorial-sweep"] [data-layout-family="card-grid"][data-layout-variant="card-grid-columns"] .quality-grid,
+:root[data-layout-pack="editorial-sweep"] [data-layout-family="card-grid"][data-layout-variant="card-grid-columns"] .platform-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+:root[data-layout-pack="editorial-sweep"] [data-layout-family="card-grid"][data-layout-variant="card-grid-bands"] .phase-grid,
+:root[data-layout-pack="editorial-sweep"] [data-layout-family="card-grid"][data-layout-variant="card-grid-bands"] .ops-grid {
+  grid-template-columns: 1fr;
+}
+
+:root[data-layout-pack="editorial-sweep"] [data-layout-family="process-flow"][data-layout-variant="process-flow-ribbon"] .logic-map {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+:root[data-layout-pack="editorial-sweep"] [data-layout-family="process-flow"][data-layout-variant="process-flow-ribbon"] .logic-arrow {
+  display: none;
+}
+
+:root[data-layout-pack="editorial-sweep"] [data-layout-family="process-flow"][data-layout-variant="process-flow-rail"] .arch-flow {
+  gap: 20px;
+}
+
+:root[data-layout-pack="editorial-sweep"] [data-layout-family="metric-compare"][data-layout-variant="metric-compare-spotlight"] .ba-card .big {
+  font-size: 88px;
+}
+
+:root[data-layout-pack="editorial-sweep"] [data-layout-family="metric-compare"][data-layout-variant="metric-compare-split"] .arch-meta {
+  grid-template-columns: 1fr;
+}

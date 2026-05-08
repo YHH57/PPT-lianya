@@ -1,0 +1,12 @@
+:root[data-motion-pack="punchy-tech"] {
+  --anim-dur: .58s;
+  --anim-ease: cubic-bezier(.2,.85,.2,1);
+  --random-panel-shift: translateY(-4px) scale(1.01);
+}
+
+:root[data-motion-pack="punchy-tech"] .sample-button:hover,
+:root[data-motion-pack="punchy-tech"] .platform-card:hover,
+:root[data-motion-pack="punchy-tech"] .template-card:hover {
+  transform: var(--random-panel-shift);
+  transition: transform .22s var(--anim-ease), box-shadow .22s var(--anim-ease);
+}
